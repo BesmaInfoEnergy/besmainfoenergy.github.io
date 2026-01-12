@@ -16,6 +16,8 @@
   --gray:#CCCCCC;
 }
 
+*{box-sizing:border-box}
+
 body{
   margin:0;
   font-family:Arial, sans-serif;
@@ -25,50 +27,49 @@ body{
 
 header{
   text-align:center;
-  padding:50px 20px;
+  padding:40px 20px;
 }
 
-h1{color:var(--green);margin-bottom:5px;}
-p{color:var(--gray);}
+header img{
+  width:120px;
+}
+
+h1{color:var(--green)}
+p{color:var(--gray)}
 
 .lang button{
-  margin:5px;
-  padding:6px 12px;
+  margin:6px;
+  padding:8px 14px;
   border:none;
   border-radius:6px;
   background:var(--yellow);
-  cursor:pointer;
   font-weight:bold;
+  cursor:pointer;
 }
 
 .section{
   background:var(--blue2);
-  margin:20px;
-  padding:30px;
-  border-radius:12px;
+  margin:15px;
+  padding:25px;
+  border-radius:14px;
 }
 
 .services{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:20px;
-  text-align:center;
 }
 
 .card{
   background:#0E2238;
   padding:20px;
-  border-radius:10px;
+  border-radius:12px;
+  text-align:center;
+  cursor:pointer;
+  transition:0.3s;
 }
 
-.card span{
-  font-size:40px;
-}
-
-a{
-  color:var(--yellow);
-  text-decoration:none;
-}
+.card:hover{transform:scale(1.03)}
 
 .links{
   display:flex;
@@ -77,17 +78,37 @@ a{
   flex-wrap:wrap;
 }
 
-.links img{
-  width:80px;
-  height:auto;
+.links img{width:90px}
+
+form{
+  display:grid;
+  gap:15px;
+  max-width:500px;
+  margin:auto;
+}
+
+input, select, textarea{
+  padding:10px;
+  border-radius:6px;
+  border:none;
+  font-size:16px;
+}
+
+button.submit{
+  background:var(--green);
+  color:white;
+  padding:12px;
+  border:none;
+  font-size:16px;
   border-radius:8px;
+  cursor:pointer;
 }
 
 footer{
   text-align:center;
   padding:20px;
-  font-size:14px;
   color:var(--gray);
+  font-size:14px;
 }
 </style>
 </head>
@@ -95,9 +116,9 @@ footer{
 <body>
 
 <header>
-  <!-- LOGO DYNAMIQUE PNG SELON LANGUE -->
-  <a id="logo-link" href="https://www.anae.dz/" target="_blank">
-    <img id="logo" src="logo_fr.png" alt="BIE Logo" style="width:130px; margin-bottom:15px;">
+  <!-- LOGO PRINCIPAL (SITE BIE) -->
+  <a href="#" id="site-link">
+    <img id="logo" src="logo_fr.png" alt="BIE Logo">
   </a>
 
   <h1 id="title">BIE – Besma Informatique & Énergétique</h1>
@@ -110,130 +131,104 @@ footer{
   </div>
 </header>
 
+<!-- SERVICES -->
 <div class="section">
 <h2 id="services-title">Nos services</h2>
 
 <div class="services">
-  <div class="card">
-    <span>💻</span>
-    <h3 id="service1-title">Informatique</h3>
-    <p id="service1-desc">Maintenance, dépannage, logiciels</p>
-  </div>
-
-  <div class="card">
-    <span>🌐</span>
-    <h3 id="service2-title">Réseaux</h3>
-    <p id="service2-desc">Wi-Fi, configuration, sécurité</p>
-  </div>
-
-  <div class="card">
-    <span>🔌</span>
-    <h3 id="service3-title">Énergie</h3>
-    <p id="service3-desc">Solutions électriques & optimisation</p>
-  </div>
-
-  <div class="card">
-    <span>☀️</span>
-    <h3 id="service4-title">Solaire</h3>
-    <p id="service4-desc">Énergie durable & conseils</p>
-  </div>
+  <div class="card" onclick="selectService('IT')">💻 <h3 id="s1">Informatique</h3></div>
+  <div class="card" onclick="selectService('Network')">🌐 <h3 id="s2">Réseaux</h3></div>
+  <div class="card" onclick="selectService('Energy')">🔌 <h3 id="s3">Énergie</h3></div>
+  <div class="card" onclick="selectService('Solar')">☀️ <h3 id="s4">Solaire</h3></div>
 </div>
 </div>
 
+<!-- CONTACT -->
 <div class="section">
-<h2 id="contact-title">Contact</h2>
-<p id="contact-mobilis">📞 Mobilis : <a href="tel:+213663622010">+213 663 622 010</a></p>
-<p id="contact-ooredoo">📞 Ooredoo : <a href="tel:+213559328204">+213 559 328 204</a></p>
-<p id="contact-email">📧 <a href="mailto:BesmaInfoEnergy@gmail.com">BesmaInfoEnergy@gmail.com</a></p>
-<p>Email public : contact@besmainfoenergy.github.io</p>
+<h2 id="contact-title">Nous contacter</h2>
+
+<form>
+  <input type="text" id="name" placeholder="Nom" required>
+  <input type="email" id="email" placeholder="Email" required>
+
+  <select id="service">
+    <option value="">Choisir un service</option>
+    <option value="IT">Informatique</option>
+    <option value="Network">Réseaux</option>
+    <option value="Energy">Énergie</option>
+    <option value="Solar">Solaire</option>
+  </select>
+
+  <textarea id="message" rows="4" placeholder="Votre message"></textarea>
+
+  <button class="submit" type="submit">Envoyer</button>
+</form>
+
+<p>📞 +213 663 622 010 / +213 559 328 204</p>
+<p>📧 BesmaInfoEnergy@gmail.com</p>
 </div>
 
+<!-- LIENS OFFICIELS -->
 <div class="section">
-<h2 id="links-title">Liens officiels</h2>
+<h2 id="links-title">Partenaires</h2>
 <div class="links">
-  <a href="https://www.anae.dz/" target="_blank"><img src="logo1.png" alt="ANAE"></a>
-  <a href="https://moukawil.dz/" target="_blank"><img src="mouqawil2.png" alt="Moukawil"></a>
+  <a href="https://www.anae.dz/" target="_blank"><img src="logo1.png"></a>
+  <a href="https://moukawil.dz/" target="_blank"><img src="mouqawil2.png"></a>
 </div>
 </div>
 
 <footer>
-© 2026 – BIE Informatique & Énergétique
+© 2026 – Besma Info Energy
 </footer>
 
 <script>
-// Textes trilingues
-const t = {
-  fr: {
-    title: "BIE – Besma Informatique & Énergétique",
-    slogan: "Votre partenaire Technologie & Énergie",
-    services: "Nos services",
-    contact: "Contact",
-    links: "Liens officiels",
-    service1: {title:"Informatique", desc:"Maintenance, dépannage, logiciels"},
-    service2: {title:"Réseaux", desc:"Wi-Fi, configuration, sécurité"},
-    service3: {title:"Énergie", desc:"Solutions électriques & optimisation"},
-    service4: {title:"Solaire", desc:"Énergie durable & conseils"},
-    contactMobilis: "📞 Mobilis : ",
-    contactOoredoo: "📞 Ooredoo : ",
-    contactEmail: "📧 ",
-    logo: "logo_fr.png"
-  },
-  en: {
-    title: "BIE – Besma Info Energy",
-    slogan: "Your Technology & Energy Partner",
-    services: "Our Services",
-    contact: "Contact",
-    links: "Official Links",
-    service1: {title:"IT", desc:"Maintenance, troubleshooting, software"},
-    service2: {title:"Networks", desc:"Wi-Fi, configuration, security"},
-    service3: {title:"Energy", desc:"Electrical solutions & optimization"},
-    service4: {title:"Solar", desc:"Sustainable energy & consulting"},
-    contactMobilis: "📞 Mobilis : ",
-    contactOoredoo: "📞 Ooredoo : ",
-    contactEmail: "📧 ",
-    logo: "logo_en.png"
-  },
-  ar: {
-    title: "بسمة للمعلوماتية و الطاقة",
-    slogan: "شريككم في التكنولوجيا و الطاقة",
-    services: "خدماتنا",
-    contact: "اتصل بنا",
-    links: "روابط رسمية",
-    service1: {title:"المعلوماتية", desc:"صيانة، دعم، برمجيات"},
-    service2: {title:"الشبكات", desc:"واي فاي، إعداد، أمان"},
-    service3: {title:"الطاقة", desc:"حلول كهربائية وتحسين"},
-    service4: {title:"الطاقة الشمسية", desc:"طاقة مستدامة واستشارات"},
-    contactMobilis: "📞 موبليس : ",
-    contactOoredoo: "📞 أوريدو : ",
-    contactEmail: "📧 ",
-    logo: "logo_ar.png"
-  }
+const t={
+fr:{
+title:"BIE – Besma Informatique & Énergétique",
+slogan:"Votre partenaire Technologie & Énergie",
+services:"Nos services",
+contact:"Nous contacter",
+links:"Partenaires",
+s:["Informatique","Réseaux","Énergie","Solaire"],
+logo:"logo_fr.png"
+},
+en:{
+title:"BIE – Besma Info Energy",
+slogan:"Your Technology & Energy Partner",
+services:"Our Services",
+contact:"Contact Us",
+links:"Partners",
+s:["IT","Networks","Energy","Solar"],
+logo:"logo_en.png"
+},
+ar:{
+title:"بسمة للمعلوماتية و الطاقة",
+slogan:"شريككم في التكنولوجيا و الطاقة",
+services:"خدماتنا",
+contact:"اتصل بنا",
+links:"شركاؤنا",
+s:["المعلوماتية","الشبكات","الطاقة","الطاقة الشمسية"],
+logo:"logo_ar.png"
+}
 };
 
 function setLang(l){
-  const lang = t[l];
-  document.getElementById('logo').src = lang.logo;
-  document.getElementById('title').innerText = lang.title;
-  document.getElementById('slogan').innerText = lang.slogan;
-  document.getElementById('services-title').innerText = lang.services;
-  document.getElementById('service1-title').innerText = lang.service1.title;
-  document.getElementById('service1-desc').innerText = lang.service1.desc;
-  document.getElementById('service2-title').innerText = lang.service2.title;
-  document.getElementById('service2-desc').innerText = lang.service2.desc;
-  document.getElementById('service3-title').innerText = lang.service3.title;
-  document.getElementById('service3-desc').innerText = lang.service3.desc;
-  document.getElementById('service4-title').innerText = lang.service4.title;
-  document.getElementById('service4-desc').innerText = lang.service4.desc;
-  document.getElementById('contact-title').innerText = lang.contact;
-  document.getElementById('contact-mobilis').childNodes[0].nodeValue = lang.contactMobilis;
-  document.getElementById('contact-ooredoo').childNodes[0].nodeValue = lang.contactOoredoo;
-  document.getElementById('contact-email').childNodes[0].nodeValue = lang.contactEmail;
-  document.getElementById('links-title').innerText = lang.links;
-  document.body.dir = l==="ar"?"rtl":"ltr";
+document.getElementById("logo").src=t[l].logo;
+title.innerText=t[l].title;
+slogan.innerText=t[l].slogan;
+services-title.innerText=t[l].services;
+contact-title.innerText=t[l].contact;
+links-title.innerText=t[l].links;
+["s1","s2","s3","s4"].forEach((id,i)=>document.getElementById(id).innerText=t[l].s[i]);
+document.body.dir=l==="ar"?"rtl":"ltr";
 }
 
-// Initialisation par défaut
-setLang('fr');
+function selectService(s){
+document.getElementById("service").value=s;
+document.getElementById("message").value="Demande concernant le service : "+s;
+}
+
+setLang("fr");
 </script>
 
 </body>
