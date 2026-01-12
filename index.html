@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>BIE – Besma Info Energy</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Services informatiques et solutions énergétiques – Besma Info Energy">
+<meta name="description" content="Services informatiques et solutions énergétiques en Algérie">
 
 <style>
 :root{
@@ -16,8 +16,6 @@
   --gray:#CCCCCC;
 }
 
-*{box-sizing:border-box}
-
 body{
   margin:0;
   font-family:Arial, sans-serif;
@@ -27,16 +25,17 @@ body{
 
 header{
   text-align:center;
-  padding:40px 20px;
+  padding:30px 20px;
 }
 
 header img{
   width:130px;
+  height:auto;
   margin-bottom:15px;
 }
 
-h1{color:var(--green);margin:5px 0}
-p{color:var(--gray)}
+h1{color:var(--green);margin-bottom:5px;}
+p{color:var(--gray);}
 
 .lang button{
   margin:5px;
@@ -51,7 +50,7 @@ p{color:var(--gray)}
 .section{
   background:var(--blue2);
   margin:20px;
-  padding:25px;
+  padding:30px;
   border-radius:12px;
 }
 
@@ -66,27 +65,15 @@ p{color:var(--gray)}
   background:#0E2238;
   padding:20px;
   border-radius:10px;
-  cursor:pointer;
 }
 
-.card:hover{outline:2px solid var(--green)}
-
-.card span{font-size:36px}
-
-input, select, textarea, button{
-  width:100%;
-  padding:10px;
-  margin:8px 0;
-  border-radius:6px;
-  border:none;
-  font-size:14px;
+.card span{
+  font-size:40px;
 }
 
-button{
-  background:var(--green);
-  color:white;
-  font-weight:bold;
-  cursor:pointer;
+a{
+  color:var(--yellow);
+  text-decoration:none;
 }
 
 .links{
@@ -94,12 +81,7 @@ button{
   justify-content:center;
   gap:30px;
   flex-wrap:wrap;
-  align-items:center;
 }
-
-.links img{height:55px}
-
-a{color:var(--yellow);text-decoration:none}
 
 footer{
   text-align:center;
@@ -107,15 +89,33 @@ footer{
   font-size:14px;
   color:var(--gray);
 }
+
+form input, form textarea, form select{
+  width:100%;
+  padding:10px;
+  margin:8px 0;
+  border-radius:6px;
+  border:none;
+  box-sizing:border-box;
+}
+
+form button{
+  padding:10px 20px;
+  background:var(--green);
+  color:var(--white);
+  font-weight:bold;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
 </style>
 </head>
 
 <body>
 
 <header>
-  <a href="/" aria-label="Besma Info Energy">
-    <img id="logo" src="logo_fr.png" alt="BIE Logo">
-  </a>
+  <!-- LOGO PNG MULTILINGUE -->
+  <img id="logo" src="logo_fr.png" alt="BIE Logo">
 
   <h1 id="title">BIE – Besma Informatique & Énergétique</h1>
   <p id="slogan">Votre partenaire Technologie & Énergie</p>
@@ -129,43 +129,44 @@ footer{
 
 <div class="section">
 <h2 id="services-title">Nos services</h2>
-
 <div class="services">
-  <div class="card" onclick="selectService('Informatique')">
+  <div class="card">
     <span>💻</span>
-    <h3 id="srv1">Informatique</h3>
-    <p id="srv1d">Maintenance, dépannage, logiciels</p>
+    <h3 id="srv1-title">Informatique</h3>
+    <p id="srv1-desc">Maintenance, dépannage, logiciels</p>
   </div>
-
-  <div class="card" onclick="selectService('Réseaux')">
+  <div class="card">
     <span>🌐</span>
-    <h3 id="srv2">Réseaux</h3>
-    <p id="srv2d">Wi-Fi, sécurité, configuration</p>
+    <h3 id="srv2-title">Réseaux</h3>
+    <p id="srv2-desc">Wi-Fi, configuration, sécurité</p>
   </div>
-
-  <div class="card" onclick="selectService('Énergie')">
+  <div class="card">
     <span>🔌</span>
-    <h3 id="srv3">Énergie</h3>
-    <p id="srv3d">Solutions électriques</p>
+    <h3 id="srv3-title">Énergie</h3>
+    <p id="srv3-desc">Solutions électriques & optimisation</p>
   </div>
-
-  <div class="card" onclick="selectService('Solaire')">
+  <div class="card">
     <span>☀️</span>
-    <h3 id="srv4">Solaire</h3>
-    <p id="srv4d">Énergie durable</p>
+    <h3 id="srv4-title">Solaire</h3>
+    <p id="srv4-desc">Énergie durable & conseils</p>
   </div>
 </div>
 </div>
 
 <div class="section">
-<h2 id="contact-title">Nous contacter</h2>
+<h2 id="contact-title">Contact</h2>
 
 <form id="contact-form">
-  <input type="text" id="name" placeholder="Nom" required>
-  <input type="email" id="email" placeholder="Email" required>
-  <input type="tel" id="phone" placeholder="Téléphone">
-  <input type="hidden" id="service">
-  <textarea id="message" placeholder="Votre message"></textarea>
+  <input type="text" name="name" id="name" placeholder="Nom" required>
+  <input type="email" name="email" id="email" placeholder="Email" required>
+  <input type="tel" name="phone" id="phone" placeholder="Téléphone">
+  <select name="service" id="service">
+    <option value="Informatique">Informatique</option>
+    <option value="Réseaux">Réseaux</option>
+    <option value="Énergie">Énergie</option>
+    <option value="Solaire">Solaire</option>
+  </select>
+  <textarea name="message" id="message" placeholder="Votre message"></textarea>
   <button type="submit" id="send">Envoyer</button>
 </form>
 
@@ -177,86 +178,113 @@ footer{
 <div class="section">
 <h2 id="links-title">Liens officiels</h2>
 <div class="links">
-  <a href="https://www.anae.dz/" target="_blank">
-    <img src="logo1.png" alt="ANADE">
-  </a>
+  <a href="https://startup.dz/" target="_blank">🚀 startup.dz</a>
   <a href="https://moukawil.dz/" target="_blank">
-    <img src="moukawil2.png" alt="Moukawil">
+    <img src="mouqawil2.png" alt="moukawil logo" style="width:30px;vertical-align:middle;margin-right:5px;">
+    moukawil.dz
   </a>
-</div>
-</div>
-
-<div class="section">
-<h2>Réseaux sociaux</h2>
-<div class="links">
-  <a href="https://facebook.com/" target="_blank">Facebook</a>
-  <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
-  <a href="https://wa.me/213663622010" target="_blank">WhatsApp</a>
+  <a href="https://www.facebook.com/">
+    <img src="facebook.png" alt="Facebook" style="width:24px;vertical-align:middle;margin-right:5px;">
+    Facebook
+  </a>
+  <a href="https://www.linkedin.com/">
+    <img src="linkedin.png" alt="LinkedIn" style="width:24px;vertical-align:middle;margin-right:5px;">
+    LinkedIn
+  </a>
 </div>
 </div>
 
 <footer>
-© 2026 – Besma Info Energy
+© 2026 – BIE Informatique & Énergétique
 </footer>
 
+<!-- SDK EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
-const t={
-fr:{
- title:"BIE – Besma Informatique & Énergétique",
- slogan:"Votre partenaire Technologie & Énergie",
- services:"Nos services",
- contact:"Nous contacter",
- send:"Envoyer",
- srv1:"Informatique",srv1d:"Maintenance, dépannage, logiciels",
- srv2:"Réseaux",srv2d:"Wi-Fi, sécurité, configuration",
- srv3:"Énergie",srv3d:"Solutions électriques",
- srv4:"Solaire",srv4d:"Énergie durable"
-},
-en:{
- title:"BIE – Besma Info Energy",
- slogan:"Your Technology & Energy Partner",
- services:"Our services",
- contact:"Contact us",
- send:"Send",
- srv1:"IT Services",srv1d:"Maintenance, software",
- srv2:"Networks",srv2d:"Wi-Fi, security",
- srv3:"Energy",srv3d:"Electrical solutions",
- srv4:"Solar",srv4d:"Sustainable energy"
-},
-ar:{
- title:"بسمة للمعلوماتية و الطاقة",
- slogan:"شريككم في التكنولوجيا و الطاقة",
- services:"خدماتنا",
- contact:"اتصل بنا",
- send:"إرسال",
- srv1:"المعلوماتية",srv1d:"صيانة و برمجيات",
- srv2:"الشبكات",srv2d:"واي فاي و أمن",
- srv3:"الطاقة",srv3d:"حلول كهربائية",
- srv4:"الطاقة الشمسية",srv4d:"طاقة مستدامة"
-}
+emailjs.init("8lmUSp1gbyLyc5ZxC"); // 🔹 Remplace par ta clé publique EmailJS
+
+// Traduction FR / EN / AR
+const t = {
+  fr:{
+    title:"BIE – Besma Informatique & Énergétique",
+    slogan:"Votre partenaire Technologie & Énergie",
+    services:"Nos services",
+    contact:"Contact",
+    links:"Liens officiels",
+    send:"Envoyer",
+    srv1:{title:"Informatique", desc:"Maintenance, dépannage, logiciels"},
+    srv2:{title:"Réseaux", desc:"Wi-Fi, configuration, sécurité"},
+    srv3:{title:"Énergie", desc:"Solutions électriques & optimisation"},
+    srv4:{title:"Solaire", desc:"Énergie durable & conseils"},
+    logo:"logo_fr.png"
+  },
+  en:{
+    title:"BIE – Besma Info Energy",
+    slogan:"Your Technology & Energy Partner",
+    services:"Our Services",
+    contact:"Contact",
+    links:"Official Links",
+    send:"Send",
+    srv1:{title:"IT", desc:"Maintenance, troubleshooting, software"},
+    srv2:{title:"Networks", desc:"Wi-Fi, configuration, security"},
+    srv3:{title:"Energy", desc:"Electrical solutions & optimization"},
+    srv4:{title:"Solar", desc:"Sustainable energy & advice"},
+    logo:"logo_en.png"
+  },
+  ar:{
+    title:"بسمة للمعلوماتية و الطاقة",
+    slogan:"شريككم في التكنولوجيا و الطاقة",
+    services:"خدماتنا",
+    contact:"اتصل بنا",
+    links:"روابط رسمية",
+    send:"إرسال",
+    srv1:{title:"المعلوماتية", desc:"صيانة، برامج، دعم"},
+    srv2:{title:"الشبكات", desc:"واي فاي، إعدادات، أمان"},
+    srv3:{title:"الطاقة", desc:"حلول كهربائية وتحسين"},
+    srv4:{title:"الطاقة الشمسية", desc:"طاقة مستدامة ونصائح"},
+    logo:"logo_ar.png"
+  }
 };
 
+// Fonction changer langue
 function setLang(l){
- document.getElementById("logo").src="logo_"+l+".png";
- document.body.dir=l==="ar"?"rtl":"ltr";
- title.innerText=t[l].title;
- slogan.innerText=t[l].slogan;
- services-title.innerText=t[l].services;
- contact-title.innerText=t[l].contact;
- send.innerText=t[l].send;
- srv1.innerText=t[l].srv1; srv1d.innerText=t[l].srv1d;
- srv2.innerText=t[l].srv2; srv2d.innerText=t[l].srv2d;
- srv3.innerText=t[l].srv3; srv3d.innerText=t[l].srv3d;
- srv4.innerText=t[l].srv4; srv4d.innerText=t[l].srv4d;
+  document.getElementById("title").innerText = t[l].title;
+  document.getElementById("slogan").innerText = t[l].slogan;
+  document.getElementById("services-title").innerText = t[l].services;
+  document.getElementById("contact-title").innerText = t[l].contact;
+  document.getElementById("links-title").innerText = t[l].links;
+  document.getElementById("send").innerText = t[l].send;
+  document.getElementById("srv1-title").innerText = t[l].srv1.title;
+  document.getElementById("srv1-desc").innerText = t[l].srv1.desc;
+  document.getElementById("srv2-title").innerText = t[l].srv2.title;
+  document.getElementById("srv2-desc").innerText = t[l].srv2.desc;
+  document.getElementById("srv3-title").innerText = t[l].srv3.title;
+  document.getElementById("srv3-desc").innerText = t[l].srv3.desc;
+  document.getElementById("srv4-title").innerText = t[l].srv4.title;
+  document.getElementById("srv4-desc").innerText = t[l].srv4.desc;
+  document.getElementById("logo").src = t[l].logo;
+  document.body.dir = l==="ar"?"rtl":"ltr";
 }
 
-function selectService(s){
- document.getElementById("service").value=s;
- document.getElementById("contact-form").scrollIntoView({behavior:"smooth"});
-}
+// Initialisation par défaut FR
+setLang('fr');
 
-setLang("fr");
+// EmailJS form submission
+document.getElementById("contact-form").addEventListener("submit", function(event){
+  event.preventDefault();
+  emailjs.sendForm(
+    "service_6eziam7",    // 🔹 Remplace par ton Service ID EmailJS
+    "template_cbhb8io",   // 🔹 Remplace par ton Template ID EmailJS
+    this
+  ).then(function() {
+    alert("Message envoyé avec succès !");
+    document.getElementById("contact-form").reset();
+  }, function(error) {
+    alert("Erreur lors de l'envoi : " + error.text);
+    console.error("EmailJS error:", error);
+  });
+});
 </script>
 
 </body>
-</html>
+  </html>
