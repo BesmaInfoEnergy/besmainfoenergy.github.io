@@ -28,11 +28,6 @@ header{
   padding:50px 20px;
 }
 
-header img{
-  width:130px;
-  margin-bottom:15px;
-}
-
 h1{color:var(--green);margin-bottom:5px;}
 p{color:var(--gray);}
 
@@ -94,7 +89,9 @@ footer{
 <body>
 
 <header>
-  <img src="logo.svg" alt="BIE logo">
+  <!-- LOGO INLINE DYNAMIQUE -->
+  <div id="logo-container" style="margin-bottom:15px;"></div>
+
   <h1 id="title">BIE – Besma Informatique & Énergétique</h1>
   <p id="slogan">Votre partenaire Technologie & Énergie</p>
 
@@ -157,19 +154,71 @@ footer{
 
 <script>
 const t={
-fr:{title:"BIE – Besma Informatique & Énergétique",slogan:"Votre partenaire Technologie & Énergie",services:"Nos services",contact:"Contact",links:"Liens officiels"},
-en:{title:"BIE – Besma Info Energy",slogan:"Your Technology & Energy Partner",services:"Our Services",contact:"Contact",links:"Official Links"},
-ar:{title:"بسمة للمعلوماتية و الطاقة",slogan:"شريككم في التكنولوجيا و الطاقة",services:"خدماتنا",contact:"اتصل بنا",links:"روابط رسمية"}
+  fr:{title:"BIE – Besma Informatique & Énergétique",slogan:"Votre partenaire Technologie & Énergie",services:"Nos services",contact:"Contact",links:"Liens officiels"},
+  en:{title:"BIE – Besma Info Energy",slogan:"Your Technology & Energy Partner",services:"Our Services",contact:"Contact",links:"Official Links"},
+  ar:{title:"بسمة للمعلوماتية و الطاقة",slogan:"شريككم في التكنولوجيا و الطاقة",services:"خدماتنا",contact:"اتصل بنا",links:"روابط رسمية"}
 };
 
+// Logos SVG inline pour chaque langue
+const logos = {
+  fr: `<svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 300 300"
+            width="130"
+            height="130">
+          <circle cx="150" cy="150" r="140" fill="#0B1C2D"/>
+          <text x="150" y="145" text-anchor="middle" dominant-baseline="middle"
+                fill="#4CAF50" font-size="96" font-family="Arial, Helvetica, sans-serif"
+                font-weight="bold">BIE</text>
+          <line x1="60" y1="200" x2="240" y2="200" stroke="#FFC107" stroke-width="4"/>
+          <text x="150" y="230" text-anchor="middle" fill="#FFFFFF"
+                font-size="18" font-family="Arial, Helvetica, sans-serif">
+            Informatique &amp; Énergie
+          </text>
+        </svg>`,
+  en: `<svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 300 300"
+            width="130"
+            height="130">
+          <circle cx="150" cy="150" r="140" fill="#0B1C2D"/>
+          <text x="150" y="145" text-anchor="middle" dominant-baseline="middle"
+                fill="#4CAF50" font-size="96" font-family="Arial, Helvetica, sans-serif"
+                font-weight="bold">BIE</text>
+          <line x1="60" y1="200" x2="240" y2="200" stroke="#FFC107" stroke-width="4"/>
+          <text x="150" y="230" text-anchor="middle" fill="#FFFFFF"
+                font-size="18" font-family="Arial, Helvetica, sans-serif">
+            IT &amp; Energy
+          </text>
+        </svg>`,
+  ar: `<svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 300 300"
+            width="130"
+            height="130"
+            style="direction: rtl;">
+          <circle cx="150" cy="150" r="140" fill="#0B1C2D"/>
+          <text x="150" y="145" text-anchor="middle" dominant-baseline="middle"
+                fill="#4CAF50" font-size="96" font-family="Arial, Helvetica, sans-serif"
+                font-weight="bold">BIE</text>
+          <line x1="60" y1="200" x2="240" y2="200" stroke="#FFC107" stroke-width="4"/>
+          <text x="150" y="230" text-anchor="middle" fill="#FFFFFF"
+                font-size="18" font-family="Arial, Helvetica, sans-serif">
+            المعلوماتية و الطاقة
+          </text>
+        </svg>`
+};
+
+// Fonction pour changer la langue et mettre à jour le logo
 function setLang(l){
-  title.innerText=t[l].title;
-  slogan.innerText=t[l].slogan;
-  services-title.innerText=t[l].services;
-  contact-title.innerText=t[l].contact;
-  links-title.innerText=t[l].links;
-  document.body.dir=l==="ar"?"rtl":"ltr";
+  document.getElementById('logo-container').innerHTML = logos[l];
+  title.innerText = t[l].title;
+  slogan.innerText = t[l].slogan;
+  services-title.innerText = t[l].services;
+  contact-title.innerText = t[l].contact;
+  links-title.innerText = t[l].links;
+  document.body.dir = l==="ar"?"rtl":"ltr";
 }
+
+// Initialisation (FR par défaut)
+setLang('fr');
 </script>
 
 </body>
