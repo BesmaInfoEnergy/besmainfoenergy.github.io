@@ -1,129 +1,175 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>BIE – Besma Info Energy</title>
-  <meta name="description" content="Services informatiques et assistance énergétique en Algérie">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0B1C2D;
-      color: #ffffff;
-      text-align: center;
-    }
-    header {
-      padding: 40px 20px;
-    }
-    img {
-      width: 140px;
-      margin-bottom: 20px;
-    }
-    nav button {
-      margin: 5px;
-      padding: 8px 14px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    section {
-      padding: 30px 20px;
-      margin: 20px;
-      background: #102a43;
-      border-radius: 10px;
-    }
-    a {
-      color: #FFC107;
-      text-decoration: none;
-      display: block;
-      margin: 8px 0;
-    }
-    footer {
-      padding: 20px;
-      font-size: 14px;
-      color: #cccccc;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>BIE – Besma Info Energy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Services informatiques et solutions énergétiques en Algérie">
+
+<style>
+:root{
+  --blue:#0B1C2D;
+  --blue2:#102A43;
+  --green:#4CAF50;
+  --yellow:#FFC107;
+  --white:#FFFFFF;
+  --gray:#CCCCCC;
+}
+
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:var(--blue);
+  color:var(--white);
+}
+
+header{
+  text-align:center;
+  padding:50px 20px;
+}
+
+header img{
+  width:130px;
+  margin-bottom:15px;
+}
+
+h1{color:var(--green);margin-bottom:5px;}
+p{color:var(--gray);}
+
+.lang button{
+  margin:5px;
+  padding:6px 12px;
+  border:none;
+  border-radius:6px;
+  background:var(--yellow);
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.section{
+  background:var(--blue2);
+  margin:20px;
+  padding:30px;
+  border-radius:12px;
+}
+
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  text-align:center;
+}
+
+.card{
+  background:#0E2238;
+  padding:20px;
+  border-radius:10px;
+}
+
+.card span{
+  font-size:40px;
+}
+
+a{
+  color:var(--yellow);
+  text-decoration:none;
+}
+
+.links{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  flex-wrap:wrap;
+}
+
+footer{
+  text-align:center;
+  padding:20px;
+  font-size:14px;
+  color:var(--gray);
+}
+</style>
 </head>
+
 <body>
 
 <header>
-  <img src="logo.svg" alt="BIE Logo">
+  <img src="logo.svg" alt="BIE logo">
   <h1 id="title">BIE – Besma Informatique & Énergétique</h1>
   <p id="slogan">Votre partenaire Technologie & Énergie</p>
 
-  <nav>
+  <div class="lang">
     <button onclick="setLang('fr')">FR</button>
     <button onclick="setLang('en')">EN</button>
     <button onclick="setLang('ar')">AR</button>
-  </nav>
+  </div>
 </header>
 
-<section>
-  <h2 id="services-title">Nos services</h2>
-  <p id="services-text">
-    Assistance informatique, réseaux, sécurité, solutions énergétiques
-    et optimisation de la consommation.
-  </p>
-</section>
+<div class="section">
+<h2 id="services-title">Nos services</h2>
 
-<section>
-  <h2 id="contact-title">Contact</h2>
-  <a href="tel:+213663622010">📞 Mobilis : +213 663 622 010</a>
-  <a href="tel:+213559328204">📞 Ooredoo : +213 559 328 204</a>
-  <a href="mailto:BesmaInfoEnergy@gmail.com">📧 BesmaInfoEnergy@gmail.com</a>
-  <p>📧 Email public : contact@besmainfoenergy.github.io</p>
-</section>
+<div class="services">
+  <div class="card">
+    <span>💻</span>
+    <h3>Informatique</h3>
+    <p>Maintenance, dépannage, logiciels</p>
+  </div>
 
-<section>
-  <h2 id="links-title">Liens utiles</h2>
-  <a href="https://startup.dz/" target="_blank">startup.dz</a>
-  <a href="https://moukawil.dz/" target="_blank">moukawil.dz</a>
-</section>
+  <div class="card">
+    <span>🌐</span>
+    <h3>Réseaux</h3>
+    <p>Wi-Fi, configuration, sécurité</p>
+  </div>
+
+  <div class="card">
+    <span>🔌</span>
+    <h3>Énergie</h3>
+    <p>Solutions électriques & optimisation</p>
+  </div>
+
+  <div class="card">
+    <span>☀️</span>
+    <h3>Solaire</h3>
+    <p>Énergie durable & conseils</p>
+  </div>
+</div>
+</div>
+
+<div class="section">
+<h2 id="contact-title">Contact</h2>
+<p>📞 Mobilis : <a href="tel:+213663622010">+213 663 622 010</a></p>
+<p>📞 Ooredoo : <a href="tel:+213559328204">+213 559 328 204</a></p>
+<p>📧 <a href="mailto:BesmaInfoEnergy@gmail.com">BesmaInfoEnergy@gmail.com</a></p>
+<p>Email public : contact@besmainfoenergy.github.io</p>
+</div>
+
+<div class="section">
+<h2 id="links-title">Liens officiels</h2>
+<div class="links">
+  <a href="https://startup.dz/" target="_blank">🚀 startup.dz</a>
+  <a href="https://moukawil.dz/" target="_blank">🏢 moukawil.dz</a>
+</div>
+</div>
 
 <footer>
-  © 2026 – BIE – Besma Info Energy
+© 2026 – BIE Informatique & Énergétique
 </footer>
 
 <script>
-  const content = {
-    fr: {
-      title: "BIE – Besma Informatique & Énergétique",
-      slogan: "Votre partenaire Technologie & Énergie",
-      servicesTitle: "Nos services",
-      servicesText: "Assistance informatique, réseaux, sécurité et solutions énergétiques.",
-      contactTitle: "Contact",
-      linksTitle: "Liens utiles"
-    },
-    en: {
-      title: "BIE – Besma Info Energy",
-      slogan: "Your Technology & Energy Partner",
-      servicesTitle: "Our Services",
-      servicesText: "IT support, networks, security and smart energy solutions.",
-      contactTitle: "Contact",
-      linksTitle: "Useful Links"
-    },
-    ar: {
-      title: "بسمة للمعلوماتية و الطاقة",
-      slogan: "شريككم في التكنولوجيا و الطاقة",
-      servicesTitle: "خدماتنا",
-      servicesText: "الدعم المعلوماتي، الشبكات، الأمن، و حلول الطاقة.",
-      contactTitle: "اتصل بنا",
-      linksTitle: "روابط مفيدة"
-    }
-  };
+const t={
+fr:{title:"BIE – Besma Informatique & Énergétique",slogan:"Votre partenaire Technologie & Énergie",services:"Nos services",contact:"Contact",links:"Liens officiels"},
+en:{title:"BIE – Besma Info Energy",slogan:"Your Technology & Energy Partner",services:"Our Services",contact:"Contact",links:"Official Links"},
+ar:{title:"بسمة للمعلوماتية و الطاقة",slogan:"شريككم في التكنولوجيا و الطاقة",services:"خدماتنا",contact:"اتصل بنا",links:"روابط رسمية"}
+};
 
-  function setLang(lang) {
-    document.getElementById("title").innerText = content[lang].title;
-    document.getElementById("slogan").innerText = content[lang].slogan;
-    document.getElementById("services-title").innerText = content[lang].servicesTitle;
-    document.getElementById("services-text").innerText = content[lang].servicesText;
-    document.getElementById("contact-title").innerText = content[lang].contactTitle;
-    document.getElementById("links-title").innerText = content[lang].linksTitle;
-    document.body.dir = lang === "ar" ? "rtl" : "ltr";
-  }
+function setLang(l){
+  title.innerText=t[l].title;
+  slogan.innerText=t[l].slogan;
+  services-title.innerText=t[l].services;
+  contact-title.innerText=t[l].contact;
+  links-title.innerText=t[l].links;
+  document.body.dir=l==="ar"?"rtl":"ltr";
+}
 </script>
 
 </body>
