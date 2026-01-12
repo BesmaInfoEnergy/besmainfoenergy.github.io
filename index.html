@@ -2,8 +2,8 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>BIE – Besma Informatique & Énergétique</title>
-  <meta name="description" content="Services informatiques et assistance énergétique professionnelle">
+  <title>BIE – Besma Info Energy</title>
+  <meta name="description" content="Services informatiques et assistance énergétique en Algérie">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -14,55 +14,117 @@
       text-align: center;
     }
     header {
-      padding: 60px 20px;
+      padding: 40px 20px;
     }
-    h1 {
-      color: #4CAF50;
+    img {
+      width: 140px;
+      margin-bottom: 20px;
+    }
+    nav button {
+      margin: 5px;
+      padding: 8px 14px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
     }
     section {
-      padding: 40px 20px;
-      background: #102a43;
+      padding: 30px 20px;
       margin: 20px;
+      background: #102a43;
       border-radius: 10px;
+    }
+    a {
+      color: #FFC107;
+      text-decoration: none;
+      display: block;
+      margin: 8px 0;
     }
     footer {
       padding: 20px;
       font-size: 14px;
       color: #cccccc;
     }
-    a {
-      color: #FFC107;
-      text-decoration: none;
-      display: block;
-      margin: 10px;
-    }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>BIE</h1>
-  <p>Besma Informatique & Énergétique</p>
-  <p>Votre partenaire Technologie & Énergie</p>
+  <img src="logo.svg" alt="BIE Logo">
+  <h1 id="title">BIE – Besma Informatique & Énergétique</h1>
+  <p id="slogan">Votre partenaire Technologie & Énergie</p>
+
+  <nav>
+    <button onclick="setLang('fr')">FR</button>
+    <button onclick="setLang('en')">EN</button>
+    <button onclick="setLang('ar')">AR</button>
+  </nav>
 </header>
 
 <section>
-  <h2>Nos Services</h2>
-  <p>• Assistance et dépannage informatique</p>
-  <p>• Réseaux, sécurité et logiciels</p>
-  <p>• Solutions énergétiques et optimisation</p>
-  <p>• Conseil technique durable</p>
+  <h2 id="services-title">Nos services</h2>
+  <p id="services-text">
+    Assistance informatique, réseaux, sécurité, solutions énergétiques
+    et optimisation de la consommation.
+  </p>
 </section>
 
 <section>
-  <h2>Contact</h2>
-  <a href="https://wa.me/213XXXXXXXXX">WhatsApp</a>
-  <a href="mailto:besma.contact@gmail.com">Email</a>
+  <h2 id="contact-title">Contact</h2>
+  <a href="tel:+213663622010">📞 Mobilis : +213 663 622 010</a>
+  <a href="tel:+213559328204">📞 Ooredoo : +213 559 328 204</a>
+  <a href="mailto:BesmaInfoEnergy@gmail.com">📧 BesmaInfoEnergy@gmail.com</a>
+  <p>📧 Email public : contact@besmainfoenergy.github.io</p>
+</section>
+
+<section>
+  <h2 id="links-title">Liens utiles</h2>
+  <a href="https://startup.dz/" target="_blank">startup.dz</a>
+  <a href="https://moukawil.dz/" target="_blank">moukawil.dz</a>
 </section>
 
 <footer>
-  © 2026 – BIE Informatique & Énergétique
+  © 2026 – BIE – Besma Info Energy
 </footer>
+
+<script>
+  const content = {
+    fr: {
+      title: "BIE – Besma Informatique & Énergétique",
+      slogan: "Votre partenaire Technologie & Énergie",
+      servicesTitle: "Nos services",
+      servicesText: "Assistance informatique, réseaux, sécurité et solutions énergétiques.",
+      contactTitle: "Contact",
+      linksTitle: "Liens utiles"
+    },
+    en: {
+      title: "BIE – Besma Info Energy",
+      slogan: "Your Technology & Energy Partner",
+      servicesTitle: "Our Services",
+      servicesText: "IT support, networks, security and smart energy solutions.",
+      contactTitle: "Contact",
+      linksTitle: "Useful Links"
+    },
+    ar: {
+      title: "بسمة للمعلوماتية و الطاقة",
+      slogan: "شريككم في التكنولوجيا و الطاقة",
+      servicesTitle: "خدماتنا",
+      servicesText: "الدعم المعلوماتي، الشبكات، الأمن، و حلول الطاقة.",
+      contactTitle: "اتصل بنا",
+      linksTitle: "روابط مفيدة"
+    }
+  };
+
+  function setLang(lang) {
+    document.getElementById("title").innerText = content[lang].title;
+    document.getElementById("slogan").innerText = content[lang].slogan;
+    document.getElementById("services-title").innerText = content[lang].servicesTitle;
+    document.getElementById("services-text").innerText = content[lang].servicesText;
+    document.getElementById("contact-title").innerText = content[lang].contactTitle;
+    document.getElementById("links-title").innerText = content[lang].linksTitle;
+    document.body.dir = lang === "ar" ? "rtl" : "ltr";
+  }
+</script>
 
 </body>
 </html>
