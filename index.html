@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>BIE – Besma Info Energy</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Services informatiques et solutions énergétiques en Algérie">
+<meta name="description" content="Services informatiques et solutions énergétiques – Besma Info Energy">
 
 <style>
 :root{
@@ -31,84 +31,81 @@ header{
 }
 
 header img{
-  width:120px;
+  width:130px;
+  margin-bottom:15px;
 }
 
-h1{color:var(--green)}
+h1{color:var(--green);margin:5px 0}
 p{color:var(--gray)}
 
 .lang button{
-  margin:6px;
-  padding:8px 14px;
+  margin:5px;
+  padding:6px 12px;
   border:none;
   border-radius:6px;
   background:var(--yellow);
-  font-weight:bold;
   cursor:pointer;
+  font-weight:bold;
 }
 
 .section{
   background:var(--blue2);
-  margin:15px;
+  margin:20px;
   padding:25px;
-  border-radius:14px;
+  border-radius:12px;
 }
 
 .services{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:20px;
+  text-align:center;
 }
 
 .card{
   background:#0E2238;
   padding:20px;
-  border-radius:12px;
-  text-align:center;
+  border-radius:10px;
   cursor:pointer;
-  transition:0.3s;
 }
 
-.card:hover{transform:scale(1.03)}
+.card:hover{outline:2px solid var(--green)}
+
+.card span{font-size:36px}
+
+input, select, textarea, button{
+  width:100%;
+  padding:10px;
+  margin:8px 0;
+  border-radius:6px;
+  border:none;
+  font-size:14px;
+}
+
+button{
+  background:var(--green);
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
 
 .links{
   display:flex;
   justify-content:center;
   gap:30px;
   flex-wrap:wrap;
+  align-items:center;
 }
 
-.links img{width:90px}
+.links img{height:55px}
 
-form{
-  display:grid;
-  gap:15px;
-  max-width:500px;
-  margin:auto;
-}
-
-input, select, textarea{
-  padding:10px;
-  border-radius:6px;
-  border:none;
-  font-size:16px;
-}
-
-button.submit{
-  background:var(--green);
-  color:white;
-  padding:12px;
-  border:none;
-  font-size:16px;
-  border-radius:8px;
-  cursor:pointer;
-}
+a{color:var(--yellow);text-decoration:none}
 
 footer{
   text-align:center;
   padding:20px;
-  color:var(--gray);
   font-size:14px;
+  color:var(--gray);
 }
 </style>
 </head>
@@ -116,8 +113,7 @@ footer{
 <body>
 
 <header>
-  <!-- LOGO PRINCIPAL (SITE BIE) -->
-  <a href="#" id="site-link">
+  <a href="/" aria-label="Besma Info Energy">
     <img id="logo" src="logo_fr.png" alt="BIE Logo">
   </a>
 
@@ -131,49 +127,71 @@ footer{
   </div>
 </header>
 
-<!-- SERVICES -->
 <div class="section">
 <h2 id="services-title">Nos services</h2>
 
 <div class="services">
-  <div class="card" onclick="selectService('IT')">💻 <h3 id="s1">Informatique</h3></div>
-  <div class="card" onclick="selectService('Network')">🌐 <h3 id="s2">Réseaux</h3></div>
-  <div class="card" onclick="selectService('Energy')">🔌 <h3 id="s3">Énergie</h3></div>
-  <div class="card" onclick="selectService('Solar')">☀️ <h3 id="s4">Solaire</h3></div>
+  <div class="card" onclick="selectService('Informatique')">
+    <span>💻</span>
+    <h3 id="srv1">Informatique</h3>
+    <p id="srv1d">Maintenance, dépannage, logiciels</p>
+  </div>
+
+  <div class="card" onclick="selectService('Réseaux')">
+    <span>🌐</span>
+    <h3 id="srv2">Réseaux</h3>
+    <p id="srv2d">Wi-Fi, sécurité, configuration</p>
+  </div>
+
+  <div class="card" onclick="selectService('Énergie')">
+    <span>🔌</span>
+    <h3 id="srv3">Énergie</h3>
+    <p id="srv3d">Solutions électriques</p>
+  </div>
+
+  <div class="card" onclick="selectService('Solaire')">
+    <span>☀️</span>
+    <h3 id="srv4">Solaire</h3>
+    <p id="srv4d">Énergie durable</p>
+  </div>
 </div>
 </div>
 
-<!-- CONTACT -->
 <div class="section">
 <h2 id="contact-title">Nous contacter</h2>
 
-<form>
+<form id="contact-form">
   <input type="text" id="name" placeholder="Nom" required>
   <input type="email" id="email" placeholder="Email" required>
-
-  <select id="service">
-    <option value="">Choisir un service</option>
-    <option value="IT">Informatique</option>
-    <option value="Network">Réseaux</option>
-    <option value="Energy">Énergie</option>
-    <option value="Solar">Solaire</option>
-  </select>
-
-  <textarea id="message" rows="4" placeholder="Votre message"></textarea>
-
-  <button class="submit" type="submit">Envoyer</button>
+  <input type="tel" id="phone" placeholder="Téléphone">
+  <input type="hidden" id="service">
+  <textarea id="message" placeholder="Votre message"></textarea>
+  <button type="submit" id="send">Envoyer</button>
 </form>
 
-<p>📞 +213 663 622 010 / +213 559 328 204</p>
-<p>📧 BesmaInfoEnergy@gmail.com</p>
+<p>📞 Mobilis : <a href="tel:+213663622010">+213 663 622 010</a></p>
+<p>📞 Ooredoo : <a href="tel:+213559328204">+213 559 328 204</a></p>
+<p>📧 <a href="mailto:BesmaInfoEnergy@gmail.com">BesmaInfoEnergy@gmail.com</a></p>
 </div>
 
-<!-- LIENS OFFICIELS -->
 <div class="section">
-<h2 id="links-title">Partenaires</h2>
+<h2 id="links-title">Liens officiels</h2>
 <div class="links">
-  <a href="https://www.anae.dz/" target="_blank"><img src="logo1.png"></a>
-  <a href="https://moukawil.dz/" target="_blank"><img src="mouqawil2.png"></a>
+  <a href="https://www.anae.dz/" target="_blank">
+    <img src="logo1.png" alt="ANADE">
+  </a>
+  <a href="https://moukawil.dz/" target="_blank">
+    <img src="moukawil2.png" alt="Moukawil">
+  </a>
+</div>
+</div>
+
+<div class="section">
+<h2>Réseaux sociaux</h2>
+<div class="links">
+  <a href="https://facebook.com/" target="_blank">Facebook</a>
+  <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
+  <a href="https://wa.me/213663622010" target="_blank">WhatsApp</a>
 </div>
 </div>
 
@@ -184,48 +202,57 @@ footer{
 <script>
 const t={
 fr:{
-title:"BIE – Besma Informatique & Énergétique",
-slogan:"Votre partenaire Technologie & Énergie",
-services:"Nos services",
-contact:"Nous contacter",
-links:"Partenaires",
-s:["Informatique","Réseaux","Énergie","Solaire"],
-logo:"logo_fr.png"
+ title:"BIE – Besma Informatique & Énergétique",
+ slogan:"Votre partenaire Technologie & Énergie",
+ services:"Nos services",
+ contact:"Nous contacter",
+ send:"Envoyer",
+ srv1:"Informatique",srv1d:"Maintenance, dépannage, logiciels",
+ srv2:"Réseaux",srv2d:"Wi-Fi, sécurité, configuration",
+ srv3:"Énergie",srv3d:"Solutions électriques",
+ srv4:"Solaire",srv4d:"Énergie durable"
 },
 en:{
-title:"BIE – Besma Info Energy",
-slogan:"Your Technology & Energy Partner",
-services:"Our Services",
-contact:"Contact Us",
-links:"Partners",
-s:["IT","Networks","Energy","Solar"],
-logo:"logo_en.png"
+ title:"BIE – Besma Info Energy",
+ slogan:"Your Technology & Energy Partner",
+ services:"Our services",
+ contact:"Contact us",
+ send:"Send",
+ srv1:"IT Services",srv1d:"Maintenance, software",
+ srv2:"Networks",srv2d:"Wi-Fi, security",
+ srv3:"Energy",srv3d:"Electrical solutions",
+ srv4:"Solar",srv4d:"Sustainable energy"
 },
 ar:{
-title:"بسمة للمعلوماتية و الطاقة",
-slogan:"شريككم في التكنولوجيا و الطاقة",
-services:"خدماتنا",
-contact:"اتصل بنا",
-links:"شركاؤنا",
-s:["المعلوماتية","الشبكات","الطاقة","الطاقة الشمسية"],
-logo:"logo_ar.png"
+ title:"بسمة للمعلوماتية و الطاقة",
+ slogan:"شريككم في التكنولوجيا و الطاقة",
+ services:"خدماتنا",
+ contact:"اتصل بنا",
+ send:"إرسال",
+ srv1:"المعلوماتية",srv1d:"صيانة و برمجيات",
+ srv2:"الشبكات",srv2d:"واي فاي و أمن",
+ srv3:"الطاقة",srv3d:"حلول كهربائية",
+ srv4:"الطاقة الشمسية",srv4d:"طاقة مستدامة"
 }
 };
 
 function setLang(l){
-document.getElementById("logo").src=t[l].logo;
-title.innerText=t[l].title;
-slogan.innerText=t[l].slogan;
-services-title.innerText=t[l].services;
-contact-title.innerText=t[l].contact;
-links-title.innerText=t[l].links;
-["s1","s2","s3","s4"].forEach((id,i)=>document.getElementById(id).innerText=t[l].s[i]);
-document.body.dir=l==="ar"?"rtl":"ltr";
+ document.getElementById("logo").src="logo_"+l+".png";
+ document.body.dir=l==="ar"?"rtl":"ltr";
+ title.innerText=t[l].title;
+ slogan.innerText=t[l].slogan;
+ services-title.innerText=t[l].services;
+ contact-title.innerText=t[l].contact;
+ send.innerText=t[l].send;
+ srv1.innerText=t[l].srv1; srv1d.innerText=t[l].srv1d;
+ srv2.innerText=t[l].srv2; srv2d.innerText=t[l].srv2d;
+ srv3.innerText=t[l].srv3; srv3d.innerText=t[l].srv3d;
+ srv4.innerText=t[l].srv4; srv4d.innerText=t[l].srv4d;
 }
 
 function selectService(s){
-document.getElementById("service").value=s;
-document.getElementById("message").value="Demande concernant le service : "+s;
+ document.getElementById("service").value=s;
+ document.getElementById("contact-form").scrollIntoView({behavior:"smooth"});
 }
 
 setLang("fr");
