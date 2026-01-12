@@ -95,9 +95,9 @@ footer{
 <body>
 
 <header>
-  <!-- LOGO PRINCIPAL LIÉ À ANAE -->
-  <a href="https://www.anae.dz/" target="_blank">
-    <img src="logo1.png" alt="BIE Logo" style="width:130px; margin-bottom:15px;">
+  <!-- LOGO DYNAMIQUE PNG SELON LANGUE -->
+  <a id="logo-link" href="https://www.anae.dz/" target="_blank">
+    <img id="logo" src="logo_fr.png" alt="BIE Logo" style="width:130px; margin-bottom:15px;">
   </a>
 
   <h1 id="title">BIE – Besma Informatique & Énergétique</h1>
@@ -175,7 +175,8 @@ const t = {
     service4: {title:"Solaire", desc:"Énergie durable & conseils"},
     contactMobilis: "📞 Mobilis : ",
     contactOoredoo: "📞 Ooredoo : ",
-    contactEmail: "📧 "
+    contactEmail: "📧 ",
+    logo: "logo_fr.png"
   },
   en: {
     title: "BIE – Besma Info Energy",
@@ -189,7 +190,8 @@ const t = {
     service4: {title:"Solar", desc:"Sustainable energy & consulting"},
     contactMobilis: "📞 Mobilis : ",
     contactOoredoo: "📞 Ooredoo : ",
-    contactEmail: "📧 "
+    contactEmail: "📧 ",
+    logo: "logo_en.png"
   },
   ar: {
     title: "بسمة للمعلوماتية و الطاقة",
@@ -203,27 +205,30 @@ const t = {
     service4: {title:"الطاقة الشمسية", desc:"طاقة مستدامة واستشارات"},
     contactMobilis: "📞 موبليس : ",
     contactOoredoo: "📞 أوريدو : ",
-    contactEmail: "📧 "
+    contactEmail: "📧 ",
+    logo: "logo_ar.png"
   }
 };
 
 function setLang(l){
-  document.getElementById('title').innerText = t[l].title;
-  document.getElementById('slogan').innerText = t[l].slogan;
-  document.getElementById('services-title').innerText = t[l].services;
-  document.getElementById('service1-title').innerText = t[l].service1.title;
-  document.getElementById('service1-desc').innerText = t[l].service1.desc;
-  document.getElementById('service2-title').innerText = t[l].service2.title;
-  document.getElementById('service2-desc').innerText = t[l].service2.desc;
-  document.getElementById('service3-title').innerText = t[l].service3.title;
-  document.getElementById('service3-desc').innerText = t[l].service3.desc;
-  document.getElementById('service4-title').innerText = t[l].service4.title;
-  document.getElementById('service4-desc').innerText = t[l].service4.desc;
-  document.getElementById('contact-title').innerText = t[l].contact;
-  document.getElementById('contact-mobilis').childNodes[0].nodeValue = t[l].contactMobilis;
-  document.getElementById('contact-ooredoo').childNodes[0].nodeValue = t[l].contactOoredoo;
-  document.getElementById('contact-email').childNodes[0].nodeValue = t[l].contactEmail;
-  document.getElementById('links-title').innerText = t[l].links;
+  const lang = t[l];
+  document.getElementById('logo').src = lang.logo;
+  document.getElementById('title').innerText = lang.title;
+  document.getElementById('slogan').innerText = lang.slogan;
+  document.getElementById('services-title').innerText = lang.services;
+  document.getElementById('service1-title').innerText = lang.service1.title;
+  document.getElementById('service1-desc').innerText = lang.service1.desc;
+  document.getElementById('service2-title').innerText = lang.service2.title;
+  document.getElementById('service2-desc').innerText = lang.service2.desc;
+  document.getElementById('service3-title').innerText = lang.service3.title;
+  document.getElementById('service3-desc').innerText = lang.service3.desc;
+  document.getElementById('service4-title').innerText = lang.service4.title;
+  document.getElementById('service4-desc').innerText = lang.service4.desc;
+  document.getElementById('contact-title').innerText = lang.contact;
+  document.getElementById('contact-mobilis').childNodes[0].nodeValue = lang.contactMobilis;
+  document.getElementById('contact-ooredoo').childNodes[0].nodeValue = lang.contactOoredoo;
+  document.getElementById('contact-email').childNodes[0].nodeValue = lang.contactEmail;
+  document.getElementById('links-title').innerText = lang.links;
   document.body.dir = l==="ar"?"rtl":"ltr";
 }
 
