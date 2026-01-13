@@ -171,7 +171,7 @@ h2::after {
   font-size: 0.95rem;
 }
 
-  /* Services Details */
+/* Services Details */
 .services-details {
   margin-top: 50px;
   padding-top: 30px;
@@ -195,13 +195,6 @@ h2::after {
 .service-detail p {
   color: var(--gray);
   line-height: 1.8;
-}
-
-/* Responsive pour les détails des services */
-@media (max-width: 768px) {
-  .service-detail {
-    padding: 20px 15px;
-  }
 }
 
 /* Contact Form */
@@ -298,6 +291,9 @@ form button:hover {
   color: var(--yellow);
   text-decoration: none;
   transition: color 0.3s ease;
+  display: inline-block;
+  direction: ltr; /* Force LTR pour les numéros de téléphone */
+  unicode-bidi: embed; /* Garde l'ordre des chiffres */
 }
 
 .contact-info a:hover {
@@ -395,6 +391,11 @@ footer {
   padding-left: 45px;
 }
 
+[dir="rtl"] .service-detail {
+  border-left: none;
+  border-right: 4px solid var(--green);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   header {
@@ -417,6 +418,10 @@ footer {
   
   .card {
     padding: 25px 15px;
+  }
+  
+  .service-detail {
+    padding: 20px 15px;
   }
   
   .links-grid {
@@ -447,6 +452,10 @@ footer {
   .social-links img {
     width: 25px;
     height: 25px;
+  }
+  
+  .contact-info a {
+    font-size: 0.95rem;
   }
 }
 </style>
@@ -544,7 +553,8 @@ footer {
     </form>
 
     <div class="contact-info">
-      <p>📞 <a href="tel:+213663622010">+213 663 622 010</a></p>
+      <p>📞 <a href="tel:+213663622010" id="phone1-link">+213 663 622 010</a></p>
+      <p>📞 <a href="tel:+213560123456" id="phone2-link">+213 560 123 456</a></p>
       <p>📧 <a href="mailto:BesmaInfoEnergy@gmail.com">BesmaInfoEnergy@gmail.com</a></p>
     </div>
   </section>
@@ -607,6 +617,10 @@ const translations = {
     srv3: { title: "Énergie", desc: "Solutions électriques" },
     srv4: { title: "Solaire", desc: "Énergie durable" },
     logo: "images/logo_fr.png",
+    phones: {
+      phone1: "+213 663 622 010",
+      phone2: "+213 560 123 456"
+    },
     form: {
       namePlaceholder: "Nom",
       emailPlaceholder: "Email",
@@ -657,6 +671,10 @@ const translations = {
     srv3: { title: "Energy", desc: "Electrical solutions" },
     srv4: { title: "Solar", desc: "Sustainable energy" },
     logo: "images/logo_en.png",
+    phones: {
+      phone1: "+213 663 622 010",
+      phone2: "+213 560 123 456"
+    },
     form: {
       namePlaceholder: "Name",
       emailPlaceholder: "Email",
@@ -707,6 +725,10 @@ const translations = {
     srv3: { title: "الطاقة", desc: "حلول كهربائية" },
     srv4: { title: "الطاقة الشمسية", desc: "طاقة مستدامة" },
     logo: "images/logo_ar.png",
+    phones: {
+      phone1: "+213 663 622 010",
+      phone2: "+213 560 123 456"
+    },
     form: {
       namePlaceholder: "الاسم",
       emailPlaceholder: "البريد الإلكتروني",
@@ -758,6 +780,14 @@ function setLang(lang) {
   document.getElementById("social-title").textContent = t.social;
   document.getElementById("send").textContent = t.send;
   document.getElementById("copyright").textContent = t.copyright;
+  
+  // Update phone numbers (même format pour toutes les langues)
+  document.getElementById("phone1-link").textContent = t.phones.phone1;
+  document.getElementById("phone2-link").textContent = t.phones.phone2;
+  
+  // Update href for WhatsApp avec le premier numéro
+  const whatsappLink = document.querySelector('a[href*="wa.me"]');
+  whatsappLink.href = `https://wa.me/213663622010`;
   
   // Update services
   [1, 2, 3, 4].forEach(n => {
