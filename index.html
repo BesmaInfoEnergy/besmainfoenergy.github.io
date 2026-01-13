@@ -2,128 +2,394 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>BIE – Besma Info Energy</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Services informatiques et solutions énergétiques en Algérie">
+<meta name="description" content="BIE - Services informatiques et solutions énergétiques en Algérie">
+<meta name="keywords" content="informatique, énergie, solaire, réseaux, Algérie, maintenance">
+<title>BIE – Besma Info Energy</title>
 
 <style>
-:root{
-  --blue:#0B1C2D;
-  --blue2:#102A43;
-  --green:#4CAF50;
-  --yellow:#FFC107;
-  --white:#FFFFFF;
-  --gray:#CCCCCC;
+:root {
+  --blue: #0B1C2D;
+  --blue2: #102A43;
+  --green: #4CAF50;
+  --yellow: #FFC107;
+  --white: #FFFFFF;
+  --gray: #CCCCCC;
+  --dark-gray: #888888;
 }
 
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:var(--blue);
-  color:var(--white);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-header{
-  text-align:center;
-  padding:30px 20px;
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--blue);
+  color: var(--white);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-header img{
-  width:130px;
-  height:auto;
-  margin-bottom:15px;
+/* Header */
+header {
+  text-align: center;
+  padding: 40px 20px 30px;
+  background: linear-gradient(135deg, var(--blue2) 0%, var(--blue) 100%);
 }
 
-h1{color:var(--green);margin-bottom:5px;}
-p{color:var(--gray);}
-
-.lang button{
-  margin:5px;
-  padding:6px 12px;
-  border:none;
-  border-radius:6px;
-  background:var(--yellow);
-  cursor:pointer;
-  font-weight:bold;
+.logo-container {
+  margin-bottom: 20px;
 }
 
-.section{
-  background:var(--blue2);
-  margin:20px;
-  padding:30px;
-  border-radius:12px;
+header img {
+  width: 150px;
+  height: auto;
+  max-width: 100%;
+  transition: transform 0.3s ease;
 }
 
-.services{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-  text-align:center;
+header img:hover {
+  transform: scale(1.05);
 }
 
-.card{
-  background:#0E2238;
-  padding:20px;
-  border-radius:10px;
+h1 {
+  color: var(--green);
+  margin-bottom: 10px;
+  font-size: 1.8rem;
 }
 
-.card span{
-  font-size:40px;
+.slogan {
+  color: var(--gray);
+  font-size: 1.1rem;
+  margin-bottom: 25px;
 }
 
-a{
-  color:var(--yellow);
-  text-decoration:none;
+/* Language Selector */
+.lang {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
-.links{
-  display:flex;
-  justify-content:center;
-  gap:30px;
-  flex-wrap:wrap;
+.lang button {
+  padding: 8px 20px;
+  border: 2px solid var(--yellow);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--yellow);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  min-width: 80px;
 }
 
-.links img{
-  width:60px;
-  height:auto;
-  max-height:60px;
-  object-fit:contain;
-  transition:transform .3s ease;
+.lang button:hover {
+  background: var(--yellow);
+  color: var(--blue);
 }
 
-.links a:hover img{
-  transform:scale(1.1);
+/* Main Content */
+main {
+  flex: 1;
+  padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }
 
-.social-links img{
-  width:45px;
-  height:45px;
+.section {
+  background: var(--blue2);
+  margin: 30px 0;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-footer{
-  text-align:center;
-  padding:20px;
-  font-size:14px;
-  color:var(--gray);
+h2 {
+  color: var(--yellow);
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 1.6rem;
+  position: relative;
+  padding-bottom: 10px;
 }
 
-form input, form textarea, form select{
-  width:100%;
-  padding:10px;
-  margin:8px 0;
-  border-radius:6px;
-  border:none;
-  box-sizing:border-box;
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--green);
+  border-radius: 2px;
 }
 
-form button{
-  padding:10px 20px;
-  background:var(--green);
-  color:var(--white);
-  font-weight:bold;
-  border:none;
-  border-radius:6px;
-  cursor:pointer;
+/* Services Grid */
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.card {
+  background: rgba(14, 34, 56, 0.8);
+  padding: 30px 20px;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.card span {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  color: var(--green);
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.card p {
+  color: var(--gray);
+  font-size: 0.95rem;
+}
+
+/* Contact Form */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+form input,
+form textarea,
+form select {
+  width: 100%;
+  padding: 14px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+  outline: none;
+  border-color: var(--yellow);
+  box-shadow: 0 0 0 2px rgba(255, 193, 7, 0.2);
+}
+
+form input::placeholder,
+form textarea::placeholder {
+  color: var(--dark-gray);
+}
+
+form button {
+  padding: 14px 35px;
+  background: var(--green);
+  color: var(--white);
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  display: block;
+  margin: 30px auto 0;
+  min-width: 150px;
+}
+
+form button:hover {
+  background: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Contact Info */
+.contact-info {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-info p {
+  margin: 15px 0;
+  font-size: 1.1rem;
+}
+
+.contact-info a {
+  color: var(--yellow);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+  color: var(--green);
+  text-decoration: underline;
+}
+
+/* Links Section */
+.links-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.partner-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.partner-link:hover {
+  transform: scale(1.05);
+}
+
+.partner-link img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 10px;
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.partner-link span {
+  color: var(--gray);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  background: var(--yellow);
+  transform: translateY(-3px);
+}
+
+.social-links img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 25px 20px;
+  background: var(--blue2);
+  color: var(--gray);
+  font-size: 0.9rem;
+  margin-top: 40px;
+}
+
+/* RTL Support */
+[dir="rtl"] h2::after {
+  transform: none;
+  right: 50%;
+  left: auto;
+  transform: translateX(50%);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header {
+    padding: 30px 15px;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  .section {
+    padding: 30px 20px;
+    margin: 20px 0;
+  }
+  
+  .services {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .card {
+    padding: 25px 15px;
+  }
+  
+  .links-grid {
+    gap: 30px;
+  }
+  
+  .partner-link img {
+    width: 70px;
+    height: 70px;
+  }
+  
+  form button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .lang button {
+    padding: 8px 15px;
+    min-width: 70px;
+  }
+  
+  .social-links a {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .social-links img {
+    width: 25px;
+    height: 25px;
+  }
 }
 </style>
 </head>
@@ -131,102 +397,223 @@ form button{
 <body>
 
 <header>
-  <img id="logo" src="images/logo_fr.png" alt="BIE Logo">
+  <div class="logo-container">
+    <img id="logo" src="images/logo_fr.png" alt="BIE Logo" loading="lazy">
+  </div>
 
   <h1 id="title">BIE – Besma Informatique & Énergétique</h1>
-  <p id="slogan">Votre partenaire Technologie & Énergie</p>
+  <p class="slogan" id="slogan">Votre partenaire Technologie & Énergie</p>
 
   <div class="lang">
-    <button onclick="setLang('fr')">FR</button>
-    <button onclick="setLang('en')">EN</button>
-    <button onclick="setLang('ar')">AR</button>
+    <button onclick="setLang('fr')" aria-label="Français">FR</button>
+    <button onclick="setLang('en')" aria-label="English">EN</button>
+    <button onclick="setLang('ar')" aria-label="العربية">AR</button>
   </div>
 </header>
 
-<div class="section">
-<h2 id="services-title">Nos services</h2>
-<div class="services">
-  <div class="card"><span>💻</span><h3 id="srv1-title"></h3><p id="srv1-desc"></p></div>
-  <div class="card"><span>🌐</span><h3 id="srv2-title"></h3><p id="srv2-desc"></p></div>
-  <div class="card"><span>🔌</span><h3 id="srv3-title"></h3><p id="srv3-desc"></p></div>
-  <div class="card"><span>☀️</span><h3 id="srv4-title"></h3><p id="srv4-desc"></p></div>
-</div>
-</div>
+<main>
+  <section class="section" aria-labelledby="services-title">
+    <h2 id="services-title">Nos services</h2>
+    <div class="services">
+      <div class="card">
+        <span role="img" aria-hidden="true">💻</span>
+        <h3 id="srv1-title">Informatique</h3>
+        <p id="srv1-desc">Maintenance et logiciels</p>
+      </div>
+      <div class="card">
+        <span role="img" aria-hidden="true">🌐</span>
+        <h3 id="srv2-title">Réseaux</h3>
+        <p id="srv2-desc">Wi-Fi et sécurité</p>
+      </div>
+      <div class="card">
+        <span role="img" aria-hidden="true">🔌</span>
+        <h3 id="srv3-title">Énergie</h3>
+        <p id="srv3-desc">Solutions électriques</p>
+      </div>
+      <div class="card">
+        <span role="img" aria-hidden="true">☀️</span>
+        <h3 id="srv4-title">Solaire</h3>
+        <p id="srv4-desc">Énergie durable</p>
+      </div>
+    </div>
+  </section>
 
-<div class="section">
-<h2 id="contact-title">Contact</h2>
+  <section class="section" aria-labelledby="contact-title">
+    <h2 id="contact-title">Contact</h2>
+    
+    <form id="contact-form" aria-label="Formulaire de contact">
+      <div class="form-group">
+        <input type="text" name="name" placeholder="Nom" required aria-label="Votre nom">
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" placeholder="Email" required aria-label="Votre email">
+      </div>
+      <div class="form-group">
+        <input type="tel" name="phone" placeholder="Téléphone" aria-label="Votre téléphone">
+      </div>
+      <div class="form-group">
+        <select name="service" aria-label="Service demandé">
+          <option value="informatique">Informatique</option>
+          <option value="reseaux">Réseaux</option>
+          <option value="energie">Énergie</option>
+          <option value="solaire">Solaire</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <textarea name="message" placeholder="Votre message" rows="5" aria-label="Votre message"></textarea>
+      </div>
+      <button type="submit" id="send">Envoyer</button>
+    </form>
 
-<form id="contact-form">
-  <input type="text" name="name" placeholder="Nom" required>
-  <input type="email" name="email" placeholder="Email" required>
-  <input type="tel" name="phone" placeholder="Téléphone">
-  <select name="service">
-    <option>Informatique</option>
-    <option>Réseaux</option>
-    <option>Énergie</option>
-    <option>Solaire</option>
-  </select>
-  <textarea name="message" placeholder="Votre message"></textarea>
-  <button type="submit" id="send">Envoyer</button>
-</form>
+    <div class="contact-info">
+      <p>📞 <a href="tel:+213663622010">+213 663 622 010</a></p>
+      <p>📧 <a href="mailto:BesmaInfoEnergy@gmail.com">BesmaInfoEnergy@gmail.com</a></p>
+    </div>
+  </section>
 
-<p>📞 <a href="tel:+213663622010">+213 663 622 010</a></p>
-<p>📧 <a href="mailto:BesmaInfoEnergy@gmail.com">BesmaInfoEnergy@gmail.com</a></p>
-</div>
+  <section class="section" aria-labelledby="links-title">
+    <h2 id="links-title">Liens officiels</h2>
+    <div class="links-grid">
+      <a href="https://www.anae.dz/" target="_blank" rel="noopener noreferrer" class="partner-link">
+        <img src="images/logo1.png" alt="ANAE Logo" loading="lazy">
+        <span>Agence Nationale d'Appui et d'Encadrement des Entreprises</span>
+      </a>
+      <a href="https://moukawil.dz/" target="_blank" rel="noopener noreferrer" class="partner-link">
+        <img src="images/moukawil2.png" alt="Moukawil Logo" loading="lazy">
+        <span>Portail Moukawil</span>
+      </a>
+    </div>
+  </section>
 
-<div class="section">
-<h2 id="links-title">Liens officiels</h2>
-<div class="links">
-  <a href="https://www.anae.dz/" target="_blank"><img src="images/logo1.png"></a>
-  <a href="https://moukawil.dz/" target="_blank"><img src="images/moukawil2.png"></a>
-</div>
-</div>
-
-<div class="section">
-<h2>Réseaux sociaux</h2>
-<div class="links social-links">
-  <a href="https://facebook.com/" target="_blank"><img src="images/facebook.png"></a>
-  <a href="https://linkedin.com/" target="_blank"><img src="images/linkedin.png"></a>
-  <a href="https://wa.me/213663622010" target="_blank"><img src="images/whatsapp.png"></a>
-</div>
-</div>
+  <section class="section" aria-labelledby="social-title">
+    <h2 id="social-title">Réseaux sociaux</h2>
+    <div class="social-links">
+      <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <img src="images/facebook.png" alt="Facebook" loading="lazy">
+      </a>
+      <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <img src="images/linkedin.png" alt="LinkedIn" loading="lazy">
+      </a>
+      <a href="https://wa.me/213663622010" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <img src="images/whatsapp.png" alt="WhatsApp" loading="lazy">
+      </a>
+    </div>
+  </section>
+</main>
 
 <footer>
-© 2026 – BIE Informatique & Énergétique
+  <p>© 2026 – BIE Informatique & Énergétique. Tous droits réservés.</p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
+// Initialize EmailJS
 emailjs.init("8lmUSp1gbyLyc5ZxC");
 
-const t={
-fr:{title:"BIE – Besma Informatique & Énergétique",slogan:"Votre partenaire Technologie & Énergie",services:"Nos services",contact:"Contact",links:"Liens officiels",send:"Envoyer",srv1:{title:"Informatique",desc:"Maintenance et logiciels"},srv2:{title:"Réseaux",desc:"Wi-Fi et sécurité"},srv3:{title:"Énergie",desc:"Solutions électriques"},srv4:{title:"Solaire",desc:"Énergie durable"},logo:"images/logo_fr.png"},
-en:{title:"BIE – Besma Info Energy",slogan:"Your Technology & Energy Partner",services:"Our Services",contact:"Contact",links:"Official Links",send:"Send",srv1:{title:"IT",desc:"Maintenance & software"},srv2:{title:"Networks",desc:"Wi-Fi & security"},srv3:{title:"Energy",desc:"Electrical solutions"},srv4:{title:"Solar",desc:"Sustainable energy"},logo:"images/logo_en.png"},
-ar:{title:"بسمة للمعلوماتية و الطاقة",slogan:"شريككم في التكنولوجيا و الطاقة",services:"خدماتنا",contact:"اتصل بنا",links:"روابط رسمية",send:"إرسال",srv1:{title:"المعلوماتية",desc:"صيانة وبرامج"},srv2:{title:"الشبكات",desc:"واي فاي وأمان"},srv3:{title:"الطاقة",desc:"حلول كهربائية"},srv4:{title:"الطاقة الشمسية",desc:"طاقة مستدامة"},logo:"images/logo_ar.png"}
+// Translation data
+const translations = {
+  fr: {
+    title: "BIE – Besma Informatique & Énergétique",
+    slogan: "Votre partenaire Technologie & Énergie",
+    services: "Nos services",
+    contact: "Contact",
+    links: "Liens officiels",
+    social: "Réseaux sociaux",
+    send: "Envoyer",
+    srv1: { title: "Informatique", desc: "Maintenance et logiciels" },
+    srv2: { title: "Réseaux", desc: "Wi-Fi et sécurité" },
+    srv3: { title: "Énergie", desc: "Solutions électriques" },
+    srv4: { title: "Solaire", desc: "Énergie durable" },
+    logo: "images/logo_fr.png"
+  },
+  en: {
+    title: "BIE – Besma Info Energy",
+    slogan: "Your Technology & Energy Partner",
+    services: "Our Services",
+    contact: "Contact",
+    links: "Official Links",
+    social: "Social Networks",
+    send: "Send",
+    srv1: { title: "IT", desc: "Maintenance & software" },
+    srv2: { title: "Networks", desc: "Wi-Fi & security" },
+    srv3: { title: "Energy", desc: "Electrical solutions" },
+    srv4: { title: "Solar", desc: "Sustainable energy" },
+    logo: "images/logo_en.png"
+  },
+  ar: {
+    title: "بسمة للمعلوماتية و الطاقة",
+    slogan: "شريككم في التكنولوجيا و الطاقة",
+    services: "خدماتنا",
+    contact: "اتصل بنا",
+    links: "روابط رسمية",
+    social: "الشبكات الاجتماعية",
+    send: "إرسال",
+    srv1: { title: "المعلوماتية", desc: "صيانة وبرامج" },
+    srv2: { title: "الشبكات", desc: "واي فاي وأمان" },
+    srv3: { title: "الطاقة", desc: "حلول كهربائية" },
+    srv4: { title: "الطاقة الشمسية", desc: "طاقة مستدامة" },
+    logo: "images/logo_ar.png"
+  }
 };
 
-function setLang(l){
-document.getElementById("title").innerText=t[l].title;
-document.getElementById("slogan").innerText=t[l].slogan;
-document.getElementById("services-title").innerText=t[l].services;
-document.getElementById("contact-title").innerText=t[l].contact;
-document.getElementById("links-title").innerText=t[l].links;
-document.getElementById("send").innerText=t[l].send;
-["1","2","3","4"].forEach(n=>{
-document.getElementById("srv"+n+"-title").innerText=t[l]["srv"+n].title;
-document.getElementById("srv"+n+"-desc").innerText=t[l]["srv"+n].desc;
-});
-document.getElementById("logo").src=t[l].logo;
-document.body.dir=l==="ar"?"rtl":"ltr";
+// Set language function
+function setLang(lang) {
+  const t = translations[lang];
+  
+  // Update text content
+  document.getElementById("title").textContent = t.title;
+  document.getElementById("slogan").textContent = t.slogan;
+  document.getElementById("services-title").textContent = t.services;
+  document.getElementById("contact-title").textContent = t.contact;
+  document.getElementById("links-title").textContent = t.links;
+  document.getElementById("social-title").textContent = t.social;
+  document.getElementById("send").textContent = t.send;
+  
+  // Update services
+  [1, 2, 3, 4].forEach(n => {
+    document.getElementById(`srv${n}-title`).textContent = t[`srv${n}`].title;
+    document.getElementById(`srv${n}-desc`).textContent = t[`srv${n}`].desc;
+  });
+  
+  // Update logo
+  document.getElementById("logo").src = t.logo;
+  document.getElementById("logo").alt = `${t.title} Logo`;
+  
+  // Set RTL for Arabic
+  document.body.dir = lang === "ar" ? "rtl" : "ltr";
+  
+  // Store language preference
+  localStorage.setItem('preferredLang', lang);
 }
 
-setLang("fr");
-
-document.getElementById("contact-form").addEventListener("submit",function(e){
-e.preventDefault();
-emailjs.sendForm("service_6eziam7","template_cbhb8io",this)
-.then(()=>alert("Message envoyé"),err=>alert(err.text));
-this.reset();
+// Load preferred language or default to French
+document.addEventListener('DOMContentLoaded', () => {
+  const savedLang = localStorage.getItem('preferredLang') || 'fr';
+  setLang(savedLang);
+  
+  // Form submission
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    
+    // Show loading state
+    const submitBtn = document.getElementById("send");
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = "Envoi en cours...";
+    submitBtn.disabled = true;
+    
+    emailjs.sendForm("service_6eziam7", "template_cbhb8io", this)
+      .then(() => {
+        alert("Message envoyé avec succès !");
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        this.reset();
+      })
+      .catch(err => {
+        alert("Erreur lors de l'envoi: " + err.text);
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      });
+  });
 });
 </script>
 
