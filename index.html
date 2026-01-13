@@ -556,6 +556,7 @@ footer {
       <p>📞 <a href="tel:+213663622010" id="phone1-link">+213 663 622 010</a></p>
       <p>📞 <a href="tel:+213560123456" id="phone2-link">+213 560 123 456</a></p>
       <p>📧 <a href="mailto:BesmaInfoEnergy@gmail.com">BesmaInfoEnergy@gmail.com</a></p>
+      <p>Email public : contact@besmainfoenergy.github.io</p>
     </div>
   </section>
 
@@ -619,7 +620,7 @@ const translations = {
     logo: "images/logo_fr.png",
     phones: {
       phone1: "+213 663 622 010",
-      phone2: "+213 560 123 456"
+      phone2: "+213 559 328 204"
     },
     form: {
       namePlaceholder: "Nom",
@@ -673,7 +674,7 @@ const translations = {
     logo: "images/logo_en.png",
     phones: {
       phone1: "+213 663 622 010",
-      phone2: "+213 560 123 456"
+      phone2: "+213 559 328 204"
     },
     form: {
       namePlaceholder: "Name",
@@ -727,7 +728,7 @@ const translations = {
     logo: "images/logo_ar.png",
     phones: {
       phone1: "+213 663 622 010",
-      phone2: "+213 560 123 456"
+      phone2: "+213 559 328 204"
     },
     form: {
       namePlaceholder: "الاسم",
@@ -849,7 +850,7 @@ document.addEventListener('DOMContentLoaded', () => {
     submitBtn.textContent = "Envoi en cours...";
     submitBtn.disabled = true;
     
-    emailjs.sendForm("service_6eziam7", "template_cbhb8io", this)
+    emailjs.sendForm("service_6eziam7", "template_v1ybs3e", this)
       .then(() => {
         alert("Message envoyé avec succès !");
         submitBtn.textContent = originalText;
