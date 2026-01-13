@@ -171,6 +171,39 @@ h2::after {
   font-size: 0.95rem;
 }
 
+  /* Services Details */
+.services-details {
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.service-detail {
+  background: rgba(14, 34, 56, 0.6);
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border-left: 4px solid var(--green);
+}
+
+.service-detail h3 {
+  color: var(--yellow);
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.service-detail p {
+  color: var(--gray);
+  line-height: 1.8;
+}
+
+/* Responsive pour les détails des services */
+@media (max-width: 768px) {
+  .service-detail {
+    padding: 20px 15px;
+  }
+}
+
 /* Contact Form */
 form {
   max-width: 600px;
@@ -443,22 +476,42 @@ footer {
       <div class="card">
         <span role="img" aria-hidden="true">💻</span>
         <h3 id="srv1-title">Informatique</h3>
-        <p id="srv1-desc">Installation, maintenance et support logiciel pour entreprises et particuliers.</p>
+        <p id="srv1-desc">Maintenance et logiciels</p>
       </div>
       <div class="card">
         <span role="img" aria-hidden="true">🌐</span>
         <h3 id="srv2-title">Réseaux</h3>
-        <p id="srv2-desc">Conception, déploiement et sécurisation de réseaux Wi-Fi et filaires.</p>
+        <p id="srv2-desc">Wi-Fi et sécurité</p>
       </div>
       <div class="card">
         <span role="img" aria-hidden="true">🔌</span>
         <h3 id="srv3-title">Énergie</h3>
-        <p id="srv3-desc">Solutions électriques et optimisation de la consommation énergétique.</p>
+        <p id="srv3-desc">Solutions électriques</p>
       </div>
       <div class="card">
         <span role="img" aria-hidden="true">☀️</span>
         <h3 id="srv4-title">Solaire</h3>
-        <p id="srv4-desc">Installation de panneaux solaires et solutions d'énergie renouvelable.</p>
+        <p id="srv4-desc">Énergie durable</p>
+      </div>
+    </div>
+    
+    <!-- Section détaillée des services -->
+    <div class="services-details" id="services-details">
+      <div class="service-detail">
+        <h3 id="detail1-title">Services Informatiques</h3>
+        <p id="detail1-desc">Installation, maintenance et dépannage de matériel informatique, développement de logiciels sur mesure, assistance technique, formation aux outils numériques, gestion de parc informatique.</p>
+      </div>
+      <div class="service-detail">
+        <h3 id="detail2-title">Services Réseaux</h3>
+        <p id="detail2-desc">Installation et configuration de réseaux LAN/WAN, mise en place de solutions Wi-Fi performantes, sécurisation des réseaux, surveillance et maintenance préventive, optimisation des connexions.</p>
+      </div>
+      <div class="service-detail">
+        <h3 id="detail3-title">Solutions Énergétiques</h3>
+        <p id="detail3-desc">Audit énergétique, installation de systèmes électriques, optimisation de la consommation, maintenance préventive et corrective, solutions d'éclairage économique, mise aux normes de sécurité.</p>
+      </div>
+      <div class="service-detail">
+        <h3 id="detail4-title">Énergie Solaire</h3>
+        <p id="detail4-desc">Installation de panneaux solaires photovoltaïques, systèmes solaires thermiques, solutions hybrides, maintenance des installations solaires, étude de faisabilité, accompagnement aux subventions.</p>
       </div>
     </div>
   </section>
@@ -530,7 +583,7 @@ footer {
 </main>
 
 <footer>
-  <p id="footer-text">© 2026 – BIE Informatique & Énergétique. Tous droits réservés.</p>
+  <p id="copyright">© 2026 – BIE Informatique & Énergétique. Tous droits réservés.</p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -538,6 +591,7 @@ footer {
 // Initialize EmailJS
 emailjs.init("8lmUSp1gbyLyc5ZxC");
 
+// Translation data with form placeholders and options
 const translations = {
   fr: {
     title: "BIE – Besma Informatique & Énergétique",
@@ -547,10 +601,11 @@ const translations = {
     links: "Liens officiels",
     social: "Réseaux sociaux",
     send: "Envoyer",
-    srv1: { title: "Informatique", desc: "Installation, maintenance et support logiciel pour entreprises et particuliers." },
-    srv2: { title: "Réseaux", desc: "Conception, déploiement et sécurisation de réseaux Wi-Fi et filaires." },
-    srv3: { title: "Énergie", desc: "Solutions électriques et optimisation de la consommation énergétique." },
-    srv4: { title: "Solaire", desc: "Installation de panneaux solaires et solutions d'énergie renouvelable." },
+    copyright: "© 2026 – BIE Informatique & Énergétique. Tous droits réservés.",
+    srv1: { title: "Informatique", desc: "Maintenance et logiciels" },
+    srv2: { title: "Réseaux", desc: "Wi-Fi et sécurité" },
+    srv3: { title: "Énergie", desc: "Solutions électriques" },
+    srv4: { title: "Solaire", desc: "Énergie durable" },
     logo: "images/logo_fr.png",
     form: {
       namePlaceholder: "Nom",
@@ -558,4 +613,227 @@ const translations = {
       phonePlaceholder: "Téléphone",
       messagePlaceholder: "Votre message",
       serviceOptions: [
-        { value: "informatique", text: "Informatique
+        { value: "informatique", text: "Informatique" },
+        { value: "reseaux", text: "Réseaux" },
+        { value: "energie", text: "Énergie" },
+        { value: "solaire", text: "Solaire" }
+      ],
+      serviceLabel: "Service demandé"
+    },
+    details: {
+      detail1: {
+        title: "Services Informatiques",
+        desc: "Installation, maintenance et dépannage de matériel informatique, développement de logiciels sur mesure, assistance technique, formation aux outils numériques, gestion de parc informatique."
+      },
+      detail2: {
+        title: "Services Réseaux",
+        desc: "Installation et configuration de réseaux LAN/WAN, mise en place de solutions Wi-Fi performantes, sécurisation des réseaux, surveillance et maintenance préventive, optimisation des connexions."
+      },
+      detail3: {
+        title: "Solutions Énergétiques",
+        desc: "Audit énergétique, installation de systèmes électriques, optimisation de la consommation, maintenance préventive et corrective, solutions d'éclairage économique, mise aux normes de sécurité."
+      },
+      detail4: {
+        title: "Énergie Solaire",
+        desc: "Installation de panneaux solaires photovoltaïques, systèmes solaires thermiques, solutions hybrides, maintenance des installations solaires, étude de faisabilité, accompagnement aux subventions."
+      }
+    },
+    linksDesc: {
+      link1: "Agence Nationale d'Appui et d'Encadrement des Entreprises",
+      link2: "Portail Moukawil"
+    }
+  },
+  en: {
+    title: "BIE – Besma Info Energy",
+    slogan: "Your Technology & Energy Partner",
+    services: "Our Services",
+    contact: "Contact",
+    links: "Official Links",
+    social: "Social Networks",
+    send: "Send",
+    copyright: "© 2026 – BIE Info Energy. All rights reserved.",
+    srv1: { title: "IT", desc: "Maintenance & software" },
+    srv2: { title: "Networks", desc: "Wi-Fi & security" },
+    srv3: { title: "Energy", desc: "Electrical solutions" },
+    srv4: { title: "Solar", desc: "Sustainable energy" },
+    logo: "images/logo_en.png",
+    form: {
+      namePlaceholder: "Name",
+      emailPlaceholder: "Email",
+      phonePlaceholder: "Phone",
+      messagePlaceholder: "Your message",
+      serviceOptions: [
+        { value: "informatique", text: "IT" },
+        { value: "reseaux", text: "Networks" },
+        { value: "energie", text: "Energy" },
+        { value: "solaire", text: "Solar" }
+      ],
+      serviceLabel: "Requested service"
+    },
+    details: {
+      detail1: {
+        title: "IT Services",
+        desc: "Installation, maintenance and troubleshooting of computer hardware, custom software development, technical support, digital tools training, IT asset management."
+      },
+      detail2: {
+        title: "Network Services",
+        desc: "Installation and configuration of LAN/WAN networks, implementation of high-performance Wi-Fi solutions, network security, monitoring and preventive maintenance, connection optimization."
+      },
+      detail3: {
+        title: "Energy Solutions",
+        desc: "Energy audit, installation of electrical systems, consumption optimization, preventive and corrective maintenance, economical lighting solutions, safety standard compliance."
+      },
+      detail4: {
+        title: "Solar Energy",
+        desc: "Installation of photovoltaic solar panels, thermal solar systems, hybrid solutions, maintenance of solar installations, feasibility studies, subsidy assistance."
+      }
+    },
+    linksDesc: {
+      link1: "National Agency for Enterprise Support and Supervision",
+      link2: "Moukawil Portal"
+    }
+  },
+  ar: {
+    title: "بسمة للمعلوماتية و الطاقة",
+    slogan: "شريككم في التكنولوجيا و الطاقة",
+    services: "خدماتنا",
+    contact: "اتصل بنا",
+    links: "روابط رسمية",
+    social: "الشبكات الاجتماعية",
+    send: "إرسال",
+    copyright: "© 2026 – بسمة للمعلوماتية والطاقة. جميع الحقوق محفوظة.",
+    srv1: { title: "المعلوماتية", desc: "صيانة وبرامج" },
+    srv2: { title: "الشبكات", desc: "واي فاي وأمان" },
+    srv3: { title: "الطاقة", desc: "حلول كهربائية" },
+    srv4: { title: "الطاقة الشمسية", desc: "طاقة مستدامة" },
+    logo: "images/logo_ar.png",
+    form: {
+      namePlaceholder: "الاسم",
+      emailPlaceholder: "البريد الإلكتروني",
+      phonePlaceholder: "الهاتف",
+      messagePlaceholder: "رسالتك",
+      serviceOptions: [
+        { value: "informatique", text: "المعلوماتية" },
+        { value: "reseaux", text: "الشبكات" },
+        { value: "energie", text: "الطاقة" },
+        { value: "solaire", text: "الطاقة الشمسية" }
+      ],
+      serviceLabel: "الخدمة المطلوبة"
+    },
+    details: {
+      detail1: {
+        title: "خدمات المعلوماتية",
+        desc: "تركيب وصيانة وإصلاح الأجهزة المعلوماتية، تطوير البرامج حسب الطلب، الدعم الفني، تكوين في الأدوات الرقمية، إدارة الممتلكات المعلوماتية."
+      },
+      detail2: {
+        title: "خدمات الشبكات",
+        desc: "تركيب وتكوين شبكات LAN/WAN، وضع حلول واي فاي فعالة، تأمين الشبكات، المراقبة والصيانة الوقائية، تحسين الاتصالات."
+      },
+      detail3: {
+        title: "حلول الطاقة",
+        desc: "مراجعة الطاقة، تركيب الأنظمة الكهربائية، تحسين الاستهلاك، الصيانة الوقائية والتصحيحية، حلول الإضاءة الاقتصادية، المطابقة لمعايير السلامة."
+      },
+      detail4: {
+        title: "الطاقة الشمسية",
+        desc: "تركيب الألواح الشمسية الكهروضوئية، أنظمة الطاقة الشمسية الحرارية، الحلول الهجينة، صيانة المنشآت الشمسية، دراسة الجدوى، المساعدة في الحصول على الدعم."
+      }
+    },
+    linksDesc: {
+      link1: "الوكالة الوطنية لدعم ومرافقة المؤسسات",
+      link2: "بوابة مكَوِّل"
+    }
+  }
+};
+
+// Set language function
+function setLang(lang) {
+  const t = translations[lang];
+  
+  // Update text content
+  document.getElementById("title").textContent = t.title;
+  document.getElementById("slogan").textContent = t.slogan;
+  document.getElementById("services-title").textContent = t.services;
+  document.getElementById("contact-title").textContent = t.contact;
+  document.getElementById("links-title").textContent = t.links;
+  document.getElementById("social-title").textContent = t.social;
+  document.getElementById("send").textContent = t.send;
+  document.getElementById("copyright").textContent = t.copyright;
+  
+  // Update services
+  [1, 2, 3, 4].forEach(n => {
+    document.getElementById(`srv${n}-title`).textContent = t[`srv${n}`].title;
+    document.getElementById(`srv${n}-desc`).textContent = t[`srv${n}`].desc;
+  });
+  
+  // Update service details
+  [1, 2, 3, 4].forEach(n => {
+    document.getElementById(`detail${n}-title`).textContent = t.details[`detail${n}`].title;
+    document.getElementById(`detail${n}-desc`).textContent = t.details[`detail${n}`].desc;
+  });
+  
+  // Update links descriptions
+  document.getElementById("link1-desc").textContent = t.linksDesc.link1;
+  document.getElementById("link2-desc").textContent = t.linksDesc.link2;
+  
+  // Update form placeholders and labels
+  document.getElementById("name-input").placeholder = t.form.namePlaceholder;
+  document.getElementById("email-input").placeholder = t.form.emailPlaceholder;
+  document.getElementById("phone-input").placeholder = t.form.phonePlaceholder;
+  document.getElementById("message-textarea").placeholder = t.form.messagePlaceholder;
+  document.getElementById("service-select").setAttribute("aria-label", t.form.serviceLabel);
+  
+  // Update service options
+  const serviceSelect = document.getElementById("service-select");
+  serviceSelect.innerHTML = ''; // Clear existing options
+  
+  t.form.serviceOptions.forEach(option => {
+    const optElement = document.createElement("option");
+    optElement.value = option.value;
+    optElement.textContent = option.text;
+    serviceSelect.appendChild(optElement);
+  });
+  
+  // Update logo
+  document.getElementById("logo").src = t.logo;
+  document.getElementById("logo").alt = `${t.title} Logo`;
+  
+  // Set RTL for Arabic
+  document.body.dir = lang === "ar" ? "rtl" : "ltr";
+  
+  // Store language preference
+  localStorage.setItem('preferredLang', lang);
+}
+
+// Load preferred language or default to French
+document.addEventListener('DOMContentLoaded', () => {
+  const savedLang = localStorage.getItem('preferredLang') || 'fr';
+  setLang(savedLang);
+  
+  // Form submission
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    
+    // Show loading state
+    const submitBtn = document.getElementById("send");
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = "Envoi en cours...";
+    submitBtn.disabled = true;
+    
+    emailjs.sendForm("service_6eziam7", "template_cbhb8io", this)
+      .then(() => {
+        alert("Message envoyé avec succès !");
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        this.reset();
+      })
+      .catch(err => {
+        alert("Erreur lors de l'envoi: " + err.text);
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      });
+  });
+});
+</script>
+
+</body>
+</html>
