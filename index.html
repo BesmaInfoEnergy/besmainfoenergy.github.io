@@ -208,6 +208,25 @@ form textarea::placeholder {
   color: var(--dark-gray);
 }
 
+/* Style pour les options du select */
+form select option {
+  background-color: var(--blue2);
+  color: var(--white);
+  padding: 12px;
+}
+
+/* Pour le fond du dropdown dans certains navigateurs */
+form select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FFC107'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 20px;
+  padding-right: 45px;
+}
+
 form button {
   padding: 14px 35px;
   background: var(--green);
@@ -337,6 +356,12 @@ footer {
   transform: translateX(50%);
 }
 
+[dir="rtl"] form select {
+  background-position: left 15px center;
+  padding-right: 15px;
+  padding-left: 45px;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   header {
@@ -443,16 +468,16 @@ footer {
     
     <form id="contact-form" aria-label="Formulaire de contact">
       <div class="form-group">
-        <input type="text" name="name" placeholder="Nom" required aria-label="Votre nom">
+        <input type="text" name="name" id="name-input" placeholder="Nom" required aria-label="Votre nom">
       </div>
       <div class="form-group">
-        <input type="email" name="email" placeholder="Email" required aria-label="Votre email">
+        <input type="email" name="email" id="email-input" placeholder="Email" required aria-label="Votre email">
       </div>
       <div class="form-group">
-        <input type="tel" name="phone" placeholder="Téléphone" aria-label="Votre téléphone">
+        <input type="tel" name="phone" id="phone-input" placeholder="Téléphone" aria-label="Votre téléphone">
       </div>
       <div class="form-group">
-        <select name="service" aria-label="Service demandé">
+        <select name="service" id="service-select" aria-label="Service demandé">
           <option value="informatique">Informatique</option>
           <option value="reseaux">Réseaux</option>
           <option value="energie">Énergie</option>
@@ -460,7 +485,7 @@ footer {
         </select>
       </div>
       <div class="form-group">
-        <textarea name="message" placeholder="Votre message" rows="5" aria-label="Votre message"></textarea>
+        <textarea name="message" id="message-textarea" placeholder="Votre message" rows="5" aria-label="Votre message"></textarea>
       </div>
       <button type="submit" id="send">Envoyer</button>
     </form>
@@ -497,6 +522,9 @@ footer {
       <a href="https://wa.me/213663622010" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
         <img src="images/whatsapp.png" alt="WhatsApp" loading="lazy">
       </a>
+      <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+        <img src="images/youtube.png" alt="YouTube" loading="lazy">
+      </a>
     </div>
   </section>
 </main>
@@ -510,7 +538,7 @@ footer {
 // Initialize EmailJS
 emailjs.init("8lmUSp1gbyLyc5ZxC");
 
-// Translation data
+// Translation data with form placeholders and options
 const translations = {
   fr: {
     title: "BIE – Besma Informatique & Énergétique",
@@ -524,7 +552,20 @@ const translations = {
     srv2: { title: "Réseaux", desc: "Wi-Fi et sécurité" },
     srv3: { title: "Énergie", desc: "Solutions électriques" },
     srv4: { title: "Solaire", desc: "Énergie durable" },
-    logo: "images/logo_fr.png"
+    logo: "images/logo_fr.png",
+    form: {
+      namePlaceholder: "Nom",
+      emailPlaceholder: "Email",
+      phonePlaceholder: "Téléphone",
+      messagePlaceholder: "Votre message",
+      serviceOptions: [
+        { value: "informatique", text: "Informatique" },
+        { value: "reseaux", text: "Réseaux" },
+        { value: "energie", text: "Énergie" },
+        { value: "solaire", text: "Solaire" }
+      ],
+      serviceLabel: "Service demandé"
+    }
   },
   en: {
     title: "BIE – Besma Info Energy",
@@ -538,7 +579,20 @@ const translations = {
     srv2: { title: "Networks", desc: "Wi-Fi & security" },
     srv3: { title: "Energy", desc: "Electrical solutions" },
     srv4: { title: "Solar", desc: "Sustainable energy" },
-    logo: "images/logo_en.png"
+    logo: "images/logo_en.png",
+    form: {
+      namePlaceholder: "Name",
+      emailPlaceholder: "Email",
+      phonePlaceholder: "Phone",
+      messagePlaceholder: "Your message",
+      serviceOptions: [
+        { value: "informatique", text: "IT" },
+        { value: "reseaux", text: "Networks" },
+        { value: "energie", text: "Energy" },
+        { value: "solaire", text: "Solar" }
+      ],
+      serviceLabel: "Requested service"
+    }
   },
   ar: {
     title: "بسمة للمعلوماتية و الطاقة",
@@ -552,7 +606,20 @@ const translations = {
     srv2: { title: "الشبكات", desc: "واي فاي وأمان" },
     srv3: { title: "الطاقة", desc: "حلول كهربائية" },
     srv4: { title: "الطاقة الشمسية", desc: "طاقة مستدامة" },
-    logo: "images/logo_ar.png"
+    logo: "images/logo_ar.png",
+    form: {
+      namePlaceholder: "الاسم",
+      emailPlaceholder: "البريد الإلكتروني",
+      phonePlaceholder: "الهاتف",
+      messagePlaceholder: "رسالتك",
+      serviceOptions: [
+        { value: "informatique", text: "المعلوماتية" },
+        { value: "reseaux", text: "الشبكات" },
+        { value: "energie", text: "الطاقة" },
+        { value: "solaire", text: "الطاقة الشمسية" }
+      ],
+      serviceLabel: "الخدمة المطلوبة"
+    }
   }
 };
 
@@ -573,6 +640,24 @@ function setLang(lang) {
   [1, 2, 3, 4].forEach(n => {
     document.getElementById(`srv${n}-title`).textContent = t[`srv${n}`].title;
     document.getElementById(`srv${n}-desc`).textContent = t[`srv${n}`].desc;
+  });
+  
+  // Update form placeholders and labels
+  document.getElementById("name-input").placeholder = t.form.namePlaceholder;
+  document.getElementById("email-input").placeholder = t.form.emailPlaceholder;
+  document.getElementById("phone-input").placeholder = t.form.phonePlaceholder;
+  document.getElementById("message-textarea").placeholder = t.form.messagePlaceholder;
+  document.getElementById("service-select").setAttribute("aria-label", t.form.serviceLabel);
+  
+  // Update service options
+  const serviceSelect = document.getElementById("service-select");
+  serviceSelect.innerHTML = ''; // Clear existing options
+  
+  t.form.serviceOptions.forEach(option => {
+    const optElement = document.createElement("option");
+    optElement.value = option.value;
+    optElement.textContent = option.text;
+    serviceSelect.appendChild(optElement);
   });
   
   // Update logo
