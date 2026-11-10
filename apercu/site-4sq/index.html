@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>مسجد السميعة — Votre lieu de culte à Beni Messous</title>
+    <meta name="description" content="Découvrez Masjid As-Samiah, un espace de prière, de recueillement et d'enseignement religieux au cœur de Beni Messous.">
+    <style>
+        :root {
+            --primary-color: #4CAF50; /* Green */
+            --secondary-color: #F5F5DC; /* Beige */
+            --accent-color: #333; /* Dark text */
+            --light-text: #fff;
+            --dark-text: #222;
+            --border-color: #ddd;
+        }
+
+        /* Basic Reset & Body */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--light-text);
+            scroll-behavior: smooth;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: var(--accent-color);
+        }
+        h1, h2, h3 {
+            font-family: Georgia, serif;
+            color: var(--accent-color);
+            margin-top: 0;
+            margin-bottom: 0.5em;
+        }
+        h1 { font-size: 2.5em; text-align: center; }
+        h2 { font-size: 2em; text-align: center; margin-bottom: 1em; }
+        h3 { font-size: 1.5em; }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Fixed Banner */
+        #fixed-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            color: var(--light-text);
+            padding: 8px 20px;
+            font-size: 0.85em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            flex-wrap: wrap; /* Allow wrapping on small screens */
+        }
+        #fixed-banner img {
+            height: 22px;
+            width: auto;
+            margin-right: 10px;
+        }
+        #fixed-banner a {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-left: 5px;
+            white-space: nowrap; /* Prevent URL from breaking */
+        }
+        #fixed-banner span {
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--light-text);
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 50px; /* Adjust for fixed banner height on desktop */
+            z-index: 999;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        header .container {
+            display: flex;
+            justify-content: center; /* Center nav as no logo/phone */
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        nav a {
+            color: var(--accent-color);
+            font-weight: bold;
+            padding: 5px 0;
+            position: relative;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        #hero {
+            background-color: var(--secondary-color);
+            padding: 80px 0 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 50px; /* Push content down from fixed header */
+        }
+        #hero::before { /* Subtle background pattern/texture */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.1) 75%, rgba(255,255,255,0.1) 100%);
+            background-size: 40px 40px;
+            opacity: 0.3;
+        }
+        #hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        #hero h1 {
+            color: var(--primary-color);
+            font-size: 3.2em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        #hero p {
+            font-size: 1.3em;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: var(--accent-color);
+        }
+        #hero img {
+            margin-top: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            max-height: 400px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        /* Sections Styling */
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        section:last-of-type {
+            border-bottom: none;
+        }
+        section:nth-of-type(even) {
+            background-color: var(--secondary-color);
+        }
+
+        /* Prestations & À Propos */
+        .text-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .text-content p {
+            font-size: 1.1em;
+            margin-bottom: 1em;
+        }
+
+        /* Galerie */
+        #galerie .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        #galerie .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        #galerie .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        #galerie .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        #galerie .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        /* Gallery Modal (CSS-only) */
+        .modal {
+            visibility: hidden;
+            opacity: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+            transition: opacity 0.3s ease;
+        }
+        .modal:target {
+            visibility: visible;
+            opacity: 1;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            background: var(--light-text);
+            padding: 20px;
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+        .modal-content img {
+            max-width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+        }
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: var(--accent-color);
+            font-size: 2em;
+            text-decoration: none;
+        }
+
+        /* Contact */
+        #contact .contact-info {
+            text-align: center;
+            font-size: 1.1em;
+        }
+        #contact .contact-info p {
+            margin-bottom: 0.5em;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--accent-color);
+            color: var(--light-text);
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9em;
+        }
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            #fixed-banner {
+                flex-direction: column;
+                padding: 5px 10px;
+            }
+            #fixed-banner img {
+                margin-bottom: 5px;
+            }
+            #fixed-banner span {
+                font-size: 0.75em;
+                margin-bottom: 5px;
+            }
+            header {
+                top: 75px; /* Adjust for taller banner */
+            }
+            #hero {
+                margin-top: 75px; /* Adjust for taller banner */
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 10px;
+            }
+            #hero h1 {
+                font-size: 2.5em;
+            }
+            #hero p {
+                font-size: 1.1em;
+            }
+            h2 {
+                font-size: 1.8em;
+            }
+            .container {
+                padding: 15px;
+            }
+            #galerie .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 480px) {
+            #hero h1 {
+                font-size: 2em;
+            }
+            #hero p {
+                font-size: 1em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            #fixed-banner {
+                font-size: 0.7em;
+            }
+            header {
+                top: 85px; /* Further adjust for very small screens */
+            }
+            #hero {
+                margin-top: 85px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Bandeau obligatoire -->
+    <div id="fixed-banner">
+        <img src="https://besma-info-energy.vercel.app/images/logo.jpg" alt="BesmaInfoEnergy Logo">
+        <span>Proposition de refonte indépendante réalisée par BesmaInfoEnergy — ce n'est pas le site officiel de مسجد السميعة</span>
+        <a href="https://besma-info-energy.vercel.app" target="_blank" rel="noopener noreferrer">besma-info-energy.vercel.app</a>
+    </div>
+
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="#hero">Accueil</a></li>
+                    <li><a href="#prestations">Prestations</a></li>
+                    <li><a href="#galerie">Galerie</a></li>
+                    <li><a href="#a-propos">À Propos</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Premier écran -->
+        <section id="hero">
+            <div class="container">
+                <h1>مسجد السميعة : Votre Oasis Spirituelle à Beni Messous</h1>
+                <p>Un lieu de recueillement, de prière et d'unité pour la communauté de Beni Messous.</p>
+                <img src="https://www.marw.dz/sites/default/files/styles/wide/public/2026-11/22.jpeg?itok=Fc2AWsnz" alt="Intérieur ou extérieur de mosquée" loading="lazy">
+            </div>
+        </section>
+
+        <!-- Prestations -->
+        <section id="prestations">
+            <div class="container">
+                <h2>Un Espace de Prière et d'Échange</h2>
+                <div class="text-content">
+                    <p>Masjid As-Samiah est dédié à la spiritualité et au renforcement des liens communautaires. Nous offrons un cadre serein pour les prières quotidiennes et un lieu d'apprentissage et de partage pour tous les membres de la communauté de Beni Messous.</p>
+                    <p>Nous nous engageons à promouvoir les valeurs islamiques de paix, de tolérance et de fraternité à travers un environnement accueillant et inspirant.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galerie -->
+        <section id="galerie">
+            <div class="container">
+                <h2>Notre Galerie</h2>
+                <div class="gallery-grid">
+                    <a href="#img1" class="gallery-item">
+                        <img src="https://www.marw.dz/sites/default/files/styles/wide/public/2026-11/22.jpeg?itok=Fc2AWsnz" alt="Intérieur ou extérieur de mosquée" loading="lazy">
+                    </a>
+                </div>
+            </div>
+            <!-- Modal for image (CSS-only) -->
+            <div id="img1" class="modal">
+                <div class="modal-content">
+                    <img src="https://www.marw.dz/sites/default/files/styles/wide/public/2026-11/22.jpeg?itok=Fc2AWsnz" alt="Intérieur ou extérieur de mosquée en grand">
+                    <a href="#galerie" class="modal-close">&times;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Présentation -->
+        <section id="a-propos">
+            <div class="container">
+                <h2>À Propos de Masjid As-Samiah</h2>
+                <div class="text-content">
+                    <p>Situé au cœur de Beni Messous, Masjid As-Samiah est un pilier de la communauté locale, offrant un lieu de culte accueillant pour tous. Nous nous engageons à promouvoir les valeurs de paix, de tolérance et de savoir, et à servir de centre spirituel et éducatif.</p>
+                    <p>Notre mosquée est un espace ouvert où chacun peut trouver sérénité, guidance et un sens d'appartenance.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <div class="container">
+                <h2>Contactez-nous</h2>
+                <div class="contact-info">
+                    <p><strong>Adresse :</strong> Beni Messous, Algérie</p>
+                    <!-- Pas de téléphone ni d'email fournis, donc pas de formulaire ni de bouton d'appel -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>مسجد السميعة — Beni Messous</p>
+            <p>Informations légales à compléter</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Calculate offset for fixed banner and header
+                    const bannerHeight = document.getElementById('fixed-banner').offsetHeight;
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const offset = bannerHeight + headerHeight + 10; // Add some extra padding
+
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - offset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
